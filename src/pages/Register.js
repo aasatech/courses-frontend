@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import MyInput from "@/Components/MyInput";
 import { Button } from "@/Components/Button";
 import * as yup from "yup";
+import usePasswordToggle from "@/Components/usePasswordToggle";
+import { useRouter } from "next/navigation";
 
 const SignupSchema = yup.object().shape({
   name: yup
@@ -12,16 +14,23 @@ const SignupSchema = yup.object().shape({
     .max(50, "Too Long!")
     .required("please input name"),
   gender: yup.string().required("please select gender"),
-  password: yup.string().min(5).required("Required"),
+  password: yup.string().min(5).required("please input your password"),
   email: yup.string().email("Invalid email").required("please input email"),
   phone: yup.string().min(9).required("please input phone number"),
-  comfirmPassword: yup
+  confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Password must match")
-    .required("Require"),
+    .required("please input your Confirm password")
+    .oneOf([yup.ref("password"), null], "Password must match"),
 });
 
 export const Register = () => {
+  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
+  const [ConfirmPasswordInputType, ConfirmToggleIcon] = usePasswordToggle();
+  const router = useRouter();
+  const handleRegister = (values) => {
+    router.push("/home");
+  };
+
   return (
     <div>
       <Formik
@@ -35,7 +44,8 @@ export const Register = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
-          alert(JSON.stringify(values.name));
+          // alert(JSON.stringify(values.name))
+          handleRegister(values);
         }}
       >
         <Form className="p-5">
@@ -50,7 +60,6 @@ export const Register = () => {
                 placeholder="name"
                 showError={true}
               />
-
               <div className="w-full">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Gender
@@ -59,7 +68,7 @@ export const Register = () => {
                   <Field
                     as="select"
                     name="gender"
-                    className="text-black w-full"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option value="">Select Gender</option>
                     <option value="Female">Female</option>
@@ -72,14 +81,30 @@ export const Register = () => {
                   />
                 </div>
               </div>
-              <Field
-                component={MyInput}
-                label="Password"
-                type="password"
-                name="password"
-                placeholder="password"
-                showError={true}
-              />
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Password
+                </label>
+                <div className="relative">
+                  <Field
+                    component={MyInput}
+                    type={PasswordInputType}
+                    name="password"
+                    placeholder="password"
+                  />
+                  <span
+                    className="bottom-0 absolute
+                right-2 transform -translate-y-1/3 cursor-pointer"
+                  >
+                    {ToggleIcon}
+                  </span>
+                </div>
+                <ErrorMessage
+                  name="password"
+                  render={(msg) => <div className="text-red-500">{msg}</div>}
+                />
+              </div>
+
               <Field
                 component={MyInput}
                 label="Email"
@@ -96,14 +121,30 @@ export const Register = () => {
                 placeholder="phone"
                 showError={true}
               />
-              <Field
-                component={MyInput}
-                label="Comfirm Password"
-                type="password"
-                name="comfirmPassword"
-                placeholder="comfirmPassword"
-                showError={true}
-              />
+
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Confirm Password
+                </label>
+                <div className="relative">
+                  <Field
+                    component={MyInput}
+                    type={ConfirmPasswordInputType}
+                    name="confirmPassword"
+                    placeholder="confirmPassword"
+                  />
+                  <span
+                    className="bottom-0 absolute
+                right-2 transform -translate-y-1/3 cursor-pointer"
+                  >
+                    {ConfirmToggleIcon}
+                  </span>
+                </div>
+                <ErrorMessage
+                  name="confirmPassword"
+                  render={(msg) => <div className="text-red-500">{msg}</div>}
+                />
+              </div>
             </div>
           </div>
           <div className="mt-5 flex justify-end">
