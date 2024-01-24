@@ -6,12 +6,11 @@ function usePasswordToggle() {
 
   const Icon = (
     <FontAwesomeIcon
-      icon={visible ? faEyeSlash : faEye}
+      icon={visible ? faEye : faEyeSlash}
       onClick={() => setvisibltity((pre) => !pre)}
     />
   );
 
-  
   const InputType = visible ? "text" : "password";
 
   return [InputType, Icon];

@@ -1,10 +1,7 @@
-import FormLogIn from '@/pages/FormLogIn';
-import React from 'react'
+import FormLogIn from "@/Components/login/FormLogIn";
+import React from "react";
 
 const page = () => {
-
-  return (
-    <FormLogIn/>
-  )
-}
+  return <FormLogIn />;
+};
 export default page;

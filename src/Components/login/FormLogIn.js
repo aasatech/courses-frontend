@@ -6,7 +6,9 @@ import { Button } from "@/Components/Button";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
 import usePasswordToggle from "@/Components/usePasswordToggle";
-import { UseSession } from "@/store/UseSession";
+import { useSession } from "@/store/UseSession";
+import { setCookies } from "../../actions/SetCookie";
+import { userLogin } from "@/actions/userService";
 
 const SignupSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("please input email"),
@@ -15,29 +17,38 @@ const SignupSchema = yup.object().shape({
 
 const FormLogIn = () => {
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
-  const [isLogin, setIsLogin] = useState(false);
-  const { setSession } = UseSession();
+  const { setSession } = useSession();
   const router = useRouter();
-  const handleLogin = (values) => {
-    if (
-      values.email === "hvireakboth64@gmail.com" &&
-      values.password === "123456789"
-    ) {
-      setSession({ email: values.email });
-      router.push("/home");
-    } else {
-      alert("Invalid credentials");
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLogin = async (values, actions) => {
+    const user = {
+      email: values.email,
+      password: values.password,
+    };
+    setIsLoading(false);
+    try {
+      const response = await userLogin(user);
+      if (response.token) {
+        console.log(response.token);
+        setCookies(response.token);
+        setSession({ token: response.token });
+        router.push("/home");
+        // actions.formReset();
+        setIsLoading(true);
+      }
+    } catch (error) {
+      setIsLoading(true);
+      alert(error.response?.data?.message);
     }
   };
-
   return (
     <div className="flex justify-center relative">
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          // alert(JSON.stringify(values.name));
-          handleLogin(values);
+        onSubmit={(values, actions) => {
+          handleLogin(values, actions);
         }}
       >
         <Form className="p-5 w-96">
@@ -76,7 +87,12 @@ const FormLogIn = () => {
             />
           </div>
           <div className="mt-5 w-full">
-            <Button label="Log In" type="submit" className="w-full" />
+            <Button
+              isloading={isLoading}
+              label="Log In"
+              type="submit"
+              className="w-full"
+            />
           </div>
         </Form>
       </Formik>

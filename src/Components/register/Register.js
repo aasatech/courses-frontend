@@ -6,6 +6,9 @@ import { Button } from "@/Components/Button";
 import * as yup from "yup";
 import usePasswordToggle from "@/Components/usePasswordToggle";
 import { useRouter } from "next/navigation";
+import { userLogin, userRegister } from "@/actions/userService";
+import { useSession } from "@/store/UseSession";
+import { setCookies } from "../../actions/SetCookie";
 
 const SignupSchema = yup.object().shape({
   name: yup
@@ -26,13 +29,43 @@ const SignupSchema = yup.object().shape({
 export const Register = () => {
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const [ConfirmPasswordInputType, ConfirmToggleIcon] = usePasswordToggle();
+  const [isLoading, setIsLoading] = useState(true);
+  const { setSession } = useSession();
   const router = useRouter();
-  const handleRegister = (values) => {
-    router.push("/home");
+  const handleRegister = async (values, actions) => {
+    const newUser = {
+      name: values.name,
+      username: values.name,
+      email: values.email,
+      password: values.password,
+      password_confirmation: values.confirmPassword,
+    };
+    setIsLoading(false);
+    try {
+      const responseRegister = await userRegister(newUser);
+      if (responseRegister) {
+        console.log(responseRegister);
+
+        const user = {
+          email: values.email,
+          password: values.password,
+        };
+        const responseLogin = await userLogin(user);
+        if (responseLogin.token) {
+          setCookies(responseLogin.token);
+          setSession({ token: responseLogin.token });
+          router.push("/home");
+          setIsLoading(true);
+        }
+      }
+    } catch (error) {
+      setIsLoading(true);
+      alert(error.response?.data?.message);
+    }
   };
 
   return (
-    <div>
+    <div className="flex justify-center relative">
       <Formik
         initialValues={{
           name: "",
@@ -40,18 +73,18 @@ export const Register = () => {
           password: "",
           email: "",
           phone: "",
-          comfirmPassword: "",
+          confirmPassword: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, actions) => {
           // alert(JSON.stringify(values.name))
-          handleRegister(values);
+          handleRegister(values, actions);
         }}
       >
-        <Form className="p-5">
+        <Form className="p-5 w-96">
           <div>
             <div className="text-xl text-center font-bold p-5">Register</div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               <Field
                 component={MyInput}
                 label="Name"
@@ -81,6 +114,23 @@ export const Register = () => {
                   />
                 </div>
               </div>
+
+              <Field
+                component={MyInput}
+                label="Email"
+                type="email"
+                name="email"
+                placeholder="email"
+                showError={true}
+              />
+              <Field
+                component={MyInput}
+                label="Phone"
+                type="phone"
+                name="phone"
+                placeholder="phone"
+                showError={true}
+              />
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Password
@@ -104,23 +154,6 @@ export const Register = () => {
                   render={(msg) => <div className="text-red-500">{msg}</div>}
                 />
               </div>
-
-              <Field
-                component={MyInput}
-                label="Email"
-                type="email"
-                name="email"
-                placeholder="email"
-                showError={true}
-              />
-              <Field
-                component={MyInput}
-                label="Phone"
-                type="phone"
-                name="phone"
-                placeholder="phone"
-                showError={true}
-              />
 
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -148,7 +181,12 @@ export const Register = () => {
             </div>
           </div>
           <div className="mt-5 flex justify-end">
-            <Button label="Register" type="submit" />
+            <Button
+              isloading={isLoading}
+              label="Register"
+              type="submit"
+              className="w-full"
+            />
           </div>
         </Form>
       </Formik>
