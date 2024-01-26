@@ -40,7 +40,7 @@ export const SectionThree = () => {
                         Your Career
                     </h2>
                     <div data-aos="fade-up" data-aos-delay="500" className='py-3 text-[#4A5355] max-2xl:text-[15px] '>
-                        <p>
+                        <p >
                             Architect client-centered total linkage for intuitive benefits. Dynamically restore convergence before real-time partnerships total linkage for intuitive benefits restore convergence before real-time.
                         </p>
                     </div>

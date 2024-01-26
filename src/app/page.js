@@ -6,6 +6,8 @@ import { SectionFour } from "./components/sectionFour/SectionFour";
 import { SectionSix } from "./components/sectionSix/SectionSix";
 import { SectionInstructor } from "./components/sectionInstructor/SectionInstructor";
 import { SectionFAQ } from "./components/sectionFAQ/SectionFAQ";
+import { SectionFinal } from "./components/sectionFinal/SectionFinal";
+import { Footer } from "./components/footer/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
       <SectionSix/>
       <SectionInstructor/>
       <SectionFAQ/>
+      <SectionFinal/>
+      <Footer/>
     </div>
   );
 }
