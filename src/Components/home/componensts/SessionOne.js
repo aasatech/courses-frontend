@@ -30,7 +30,7 @@ export const SessionOne = () => {
 
   return (
     <div
-        className="min-h-[850] h-1/2 md:h-3/4 lg:h-full xl:min-h-[850] xl:max-h-[850] bg-cover bg-center"
+        className="min-h-[850] h-1/2 md:h-3/4 lg:h-full xl:min-h-[850] xl:max-h-[850] bg-cover bg-center "
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1651352076676-58a34812f3d2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
         >
 
