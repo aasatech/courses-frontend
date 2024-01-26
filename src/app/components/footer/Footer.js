@@ -68,30 +68,30 @@ export const Footer = () => {
     }]
     return (
         <section className='pt-[100px] bg-no-repeat bg-cover bg-[url("https://eduquest.itech-theme.com/wp-content/uploads/2023/08/footer-bg.png")] 
-        grid place-items-center'>
-            <div className='w-[1320px] divide-y-[1px] divide-[#1A434F]/80'>
-                <section className='flex justify-between items-center pb-[40px]'>
-                    <div className='flex items-center gap-8'>
+        grid place-items-center px-[10px]'>
+            <div className='2xl:w-[1320px] divide-y-[1px] divide-[#1A434F]/80'>
+                <section className='flex lg:justify-between max-lg:flex-col items-center pb-[40px] gap-5'>
+                    <div className='flex items-center max-lg:justify-center max-lg:flex-col gap-8'>
                         <img className='max-w-[73px] max-h-[73px]'
                             src='https://eduquest.itech-theme.com/wp-content/uploads/2023/09/ellipse.png' />
-                        <h1 className='text-[36px] font-extrabold text-white '>
-                            Join our Newsletter for<br />
+                        <h1 className='text-[36px] font-extrabold text-white max-md:text-center'>
+                            Join our Newsletter for<br className='max-lg:hidden'/>
                             Latest Updates
                         </h1>
                     </div>
-                    <div>
+                    <div className='max-sm:flex max-sm:flex-col gap-3'>
                         <input
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            className='h-[54px] w-[340px] py-[17px] pl-[20px] pr-[2px] rounded-s-md text-[#80979D] text-[13px] font-semibold focus:outline-none'
+                            className='h-[54px] w-[340px] py-[17px] pl-[20px] pr-[2px] max-sm:rounded-e-md rounded-s-md text-[#80979D] text-[13px] font-semibold focus:outline-none'
                             placeholder='Enter email address*' />
                         <button onClick={() => { alert(input) }}
-                            className='h-[54px] bg-[#FF3158] text-white rounded-e-md p-[15px] font-extrabold text-[16px]'>
+                            className='h-[54px] bg-[#FF3158] text-white max-sm:rounded-s-md rounded-e-md p-[15px] font-extrabold text-[16px]'>
                             Subscribe
                         </button>
                     </div>
                 </section>
-                <section className='flex pt-[40px] pb-[100px] justify-between'>
+                <section className='xl:flex xl:justify-between max-xl:grid max-xl:grid-cols-2 max-md:grid-cols-1 pt-[40px] pb-[100px] gap-5'>
                     <div className='max-w-[383px] grid gap-5'>
                         <img src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/logo-light.png' />
                         <p className='text-white font-normal py-[15px]'>
@@ -174,7 +174,7 @@ export const Footer = () => {
                         </ul>
                     </div>
                 </section>
-                <section className='flex items-center justify-between text-white font-normal py-[13px]'>
+                <section className='flex max-md:flex-col md:items-center justify-between text-white font-normal py-[13px] gap-3'>
                     <div>
                         ©copyright 2023 EduQuest. Designed By itech-themes
                     </div>

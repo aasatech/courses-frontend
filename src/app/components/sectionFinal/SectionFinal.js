@@ -11,10 +11,10 @@ export const SectionFinal = () => {
         AOS.refresh()
     }, [])
     return (
-        <section className='grid place-items-center'>
+        <section className='grid place-items-center px-[10px]'>
             <div className='max-w-[1320px] pb-[110px]'>
-                <section className='pt-[130px] pb-[40px] flex justify-between items-center gap-[230px]'>
-                    <div>
+                <section className='pt-[130px] pb-[40px] flex justify-between md:items-center md:gap-[230px] max-md:flex-col'>
+                    <div className='max-lg:whitespace-nowrap'>
                         <h1 className='flex font-extrabold text-[18px] text-red-500'>
                             <img src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/dot.png' />
                             Welcome to Education
@@ -27,7 +27,7 @@ export const SectionFinal = () => {
                         SSL for your site is a no-brainer best practice. Not only does an SSL help your visitors feel safe interacting with your site—this is particularly important if you run an e-commerce site.
                     </p>
                 </section>
-                <section className='grid grid-rows-3 grid-cols-3 gap-5 '>
+                <section className='grid md:grid-rows-3 md:grid-cols-3 gap-5 '>
                     <div data-aos="fade-up" data-aos-delay="200" className='col-span-1 row-span-3'>
                         <Card 
                             img={'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/course7-1.jpg'}

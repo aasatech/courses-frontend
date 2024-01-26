@@ -21,7 +21,7 @@ export const SubCard = ({category, title, date, cmtNumber}) => {
                 </div>
             </div>
             <div className='flex justify-center items-center'>
-                <button className='bg-[#FFD6DE] hover:bg-[#FF3158] duration-200 group max-w-[36px] w-[36px] max-h-[36px] h-[36px] rounded-full flex justify-center items-center'>
+                <button className='bg-[#FFD6DE] hover:bg-[#FF3158] duration-200 group max-w-[36px] w-[36px] max-h-[36px] h-[36px] rounded-full flex justify-center items-center -rotate-45'>
                     <svg className='stroke-current font-thin text-[#FF3158] duration-200 group-hover:text-white' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
                 </button>
             </div>

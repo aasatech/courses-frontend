@@ -5,7 +5,7 @@ import { FaRegCommentAlt } from "react-icons/fa";
 
 export const Card = ({img, date, cmtNumber, title, description, link}) => {
     return (
-        <div className='grid max-w-[417px] rounded-lg shadow-md overflow-clip'>
+        <div className='grid max-w-[417px] max-md:max-w-full rounded-lg shadow-md overflow-clip'>
             <img src={img} />
             <div className='pr-[20px] pt-[20px] pl-[20px] pb-[35px]'>
                 <div className='flex items-center text-[#FF3158] gap-2 pb-[10px]'>
