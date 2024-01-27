@@ -96,11 +96,11 @@ const FormLogIn = () => {
             />
           </div>
 
-          <div class="flex flex-col gap-5">
+          <div className="flex flex-col gap-5">
             <Link href="https://course-web-service.onrender.com/api/v1/auth/google">
-              <button class="w-full mt-5 flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+              <button className="w-full mt-5 flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 <svg
-                  class="h-6 w-6 mr-2"
+                  className="h-6 w-6 mr-2"
                   viewBox="-0.5 0 48 48"
                   version="1.1"
                 >
@@ -156,8 +156,8 @@ const FormLogIn = () => {
             </Link>
 
             <Link href="https://course-web-service.onrender.com/api/v1/auth/facebook">
-              <button class="w-full flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                <svg class="h-6 w-6 mr-2" viewBox="0 0 48 48" version="1.1">
+              <button className="w-full flex items-center bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                <svg className="h-6 w-6 mr-2" viewBox="0 0 48 48" version="1.1">
                   <g
                     id="Icons"
                     stroke="none"
@@ -182,7 +182,6 @@ const FormLogIn = () => {
               </button>
             </Link>
           </div>
-         
         </Form>
       </Formik>
     </div>
