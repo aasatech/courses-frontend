@@ -1,9 +1,9 @@
-import Course from '@/Components/courses/Course'
+import CourseDetail from '@/Components/courses/CourseDetail'
 import React from 'react'
 
 const page = () => {
   return (
-    <Course/>
+    <CourseDetail/>
   )
 }
 
