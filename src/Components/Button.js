@@ -21,7 +21,8 @@ export const Button = ({ isloading = true, label, className, ...props }) => {
             animationDuration="0.75"
             ariaLabel="rotating-lines-loading"
             wrapperStyle={{}}
-            wrapperClass=""
+
+
           />
         </div>
       )}
