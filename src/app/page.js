@@ -8,21 +8,23 @@ import { SectionInstructor } from "./components/sectionInstructor/SectionInstruc
 import { SectionFAQ } from "./components/sectionFAQ/SectionFAQ";
 import { SectionFinal } from "./components/sectionFinal/SectionFinal";
 import { Footer } from "./components/footer/Footer";
+import { SectionFive } from "./components/sectionFive/SectionFive";
 
 export default function Home() {
   return (
     <div>
       <Carousel/>
-      <AchievementsSection/>
+      {/* <AchievementsSection/>
       <SectionThree />
-      <SectionFour />
+      <SectionFour /> */}
 
+      <SectionFive />
 
-      <SectionSix/>
-      <SectionInstructor/>
-      <SectionFAQ/>
-      <SectionFinal/>
-      <Footer/>
+      {/* <SectionSix/>
+      <SectionInstructor/> */}
+      {/* <SectionFAQ/> */}
+      {/* <SectionFinal/>
+      <Footer/> */}
     </div>
   );
 }
