@@ -6,12 +6,11 @@ import Image from "next/image";
 
 const Card = (props) => {
   return (
-    <div>
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <Image
+          <Image 
            width={200} height={200} 
-            className="rounded-t-lg w-full pb-5"
+            className="rounded-t-lg w-full pb-5 "
             src= {`https://course-web-service.onrender.com/${props.course.image}`}
             alt="product image"
           />
@@ -89,7 +88,7 @@ const Card = (props) => {
           </div> */}
         </div>
       </div>
-    </div>
+ 
   );
 };
 
