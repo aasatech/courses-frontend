@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import MyInput from "@/Components/MyInput";
+import MyInput from "@/Components/Input/MyInput";
 import { Button } from "@/Components/Button";
 import * as yup from "yup";
 import usePasswordToggle from "@/Components/usePasswordToggle";
@@ -55,6 +55,7 @@ export const Register = () => {
           setCookies(responseLogin.token);
           setSession({ token: responseLogin.token });
           router.push("/home");
+          actions.resetForm();
           setIsLoading(true);
         }
       }

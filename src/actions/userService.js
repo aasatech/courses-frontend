@@ -7,5 +7,10 @@ export const userRegister = async (newUser) => {
 
 export const userLogin = async (User) => {
   const response = await api.post("/auth/login", User);
-    return response.data;
+  return response.data;
+};
+
+export const userGoogle = async () => {
+  const response = await api.post("/auth/google");
+  return response.data;
 };
