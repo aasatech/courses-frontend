@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { SessionOne } from "./componensts/SessionOne";
 import { SessionTwo } from "./componensts/SessionTwo";
+import { AchievementsSection } from "./achievements/AchievementsSection";
 
 export default function () {
 
@@ -9,6 +10,8 @@ export default function () {
     <div>
       
       <SessionOne />
+      <AchievementsSection/>
+
       <SessionTwo />
         
     </div>
