@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { seSession, useSession } from "@/store/UseSession";
+import { useSession } from "@/store/UseSession";
 import { clearCookies } from "@/actions/SetCookie";
 
 export const Navbar = () => {

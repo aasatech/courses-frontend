@@ -61,7 +61,8 @@ export const Register = () => {
       }
     } catch (error) {
       setIsLoading(true);
-      alert(error.response?.data?.message);
+      console.log(error.response?.data?.errors?.email);
+      alert(error.response?.data?.errors?.email?.msg);
     }
   };
 
