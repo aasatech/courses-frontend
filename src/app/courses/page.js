@@ -1,7 +1,11 @@
-import CourseForm from "@/Components/courses/CourseForm";
-import React from "react";
+
+import Courses from '@/Components/courses/Courses'
+import React from 'react'
 
 const page = () => {
-  return <CourseForm />;
-};
-export default page;
+  return (
+    <Courses/>
+  )
+}
+
+export default page
