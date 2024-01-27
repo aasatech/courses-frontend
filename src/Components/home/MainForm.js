@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { SessionOne } from "./componensts/SessionOne";
 import { SessionTwo } from "./componensts/SessionTwo";
 import { AchievementsSection } from "./achievements/AchievementsSection";
+import { SectionThree } from "./sectionThree/SectionThree";
 
 export default function () {
 
@@ -11,7 +12,7 @@ export default function () {
       
       <SessionOne />
       <AchievementsSection/>
-
+      <SectionThree/>
       <SessionTwo />
         
     </div>
