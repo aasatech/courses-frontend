@@ -1,11 +1,10 @@
 "use client";
-
 import MainForm from "@/Components/home/MainForm";
 import { getCookies } from "@/actions/SetCookie";
 import { useSession } from "@/store/UseSession";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
-export default function Home() {
+const page = () => {
   const { session, setSession } = useSession();
 
   useEffect(() => {
@@ -19,11 +18,7 @@ export default function Home() {
     handleCheck();
   }, []);
 
-  console.log(session);
-
-  return (
-    <div>
-      <MainForm />
-    </div>
-  );
-}
+  // console.log(session);
+  return <MainForm />;
+};
+export default page;
