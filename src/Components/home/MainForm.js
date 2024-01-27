@@ -5,6 +5,9 @@ import { SessionTwo } from "./componensts/SessionTwo";
 import { AchievementsSection } from "./achievements/AchievementsSection";
 import { SectionThree } from "./sectionThree/SectionThree";
 import { SectionFour } from "./sectionFour/SectionFour";
+import { SectionFAQ } from "./sectionFAQ/SectionFAQ";
+import { SectionSix } from "./sectionSix/SectionSix";
+import { SectionFinal } from "./sectionFinal/SectionFinal";
 
 export default function () {
 
@@ -15,8 +18,10 @@ export default function () {
       <AchievementsSection/>
       <SectionThree/>
       <SectionFour/>
+      <SectionSix/>
+      <SectionFAQ/>
       <SessionTwo />
-        
+      <SectionFinal/>  
     </div>
 
   )
