@@ -16,19 +16,19 @@ export const SectionSix = () => {
                         <img src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/dot.png' />
                         Why Choose Us
                     </h1>
-                    <h2 data-aos="fade-up" data-aos-delay="300" 
+                    <h2 data-aos="fade-up" data-aos-delay="300"
                         className='text-[48px] max-2xl:text-[30px] max-md:text-[20px] font-extrabold leading-[1.5]'>
                         Learn from today  <br className='max-md:hidden' />
                         Leading <span className='text-red-500'>Universities &</span> <br className='max-md:hidden' />
                         Companies
                     </h2>
-                    <p  data-aos="fade-up" data-aos-delay="400"
+                    <p data-aos="fade-up" data-aos-delay="400"
                         className='pt-[25px] pb-[40px] text-[#4A5355]'>
                         Architect client-centered total linkage for intuitive benefits. D restore convergence before real-time.
                     </p>
                     <div className='max-md:flex max-md:flex-col max-md:items-center'>
                         {/* card */}
-                        <div data-aos="fade-up" data-aos-delay="100" 
+                        <div data-aos="fade-up" data-aos-delay="100"
                             className='px-[20px] py-[25px] mb-[20px] flex items-center gap-5 rounded-xl shadow-lg max-w-[480px]'>
                             <img
                                 className='w-[65px] h-[65px]'
@@ -42,7 +42,7 @@ export const SectionSix = () => {
                             </div>
                         </div>
                         {/* card */}
-                        <div data-aos="fade-up" data-aos-delay="200" 
+                        <div data-aos="fade-up" data-aos-delay="200"
                             className='px-[20px] py-[25px] mb-[20px] md:left-[70px] relative flex items-center gap-5 rounded-xl shadow-lg max-w-[480px]'>
                             <img
                                 className='w-[65px] h-[65px]'
@@ -57,10 +57,10 @@ export const SectionSix = () => {
                         </div>
                     </div>
                 </div>
-                <div  className='flex justify-end relative'>
+                <div className='flex justify-end relative'>
                     <img data-aos="fade-left" data-aos-delay="300"
                         className='object-contain' src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/why.png' />
-                    <div data-aos="flip-up" data-aos-delay="400"  
+                    <div data-aos="flip-up" data-aos-delay="400"
                         className='absolute top-[45%] left-[70px] py-[24px] px-[18px] max-w-[170px] max-h-[170px] shadow-lg rounded-xl bg-white flex items-center flex-col'>
                         <span className='w-[76px] h-[76px] bg-[#002935] rounded-full text-[28px] font-bold text-white flex items-center justify-center'>
                             80+
@@ -68,7 +68,7 @@ export const SectionSix = () => {
                         <p className='text-[20px] font-semibold text-[#4A5355]'>Expert Tutors</p>
                     </div>
 
-                    <div data-aos="flip-up" data-aos-delay="500" 
+                    <div data-aos="flip-up" data-aos-delay="500"
                         className='absolute bottom-0 right-10 py-[24px] px-[18px] max-w-[240px] max-h-[280px] shadow-lg rounded-xl bg-white flex items-center flex-col'>
                         <span className='w-[64px] h-[64px] bg-[#ff3158] rounded-full'>
                         </span>
@@ -83,16 +83,18 @@ export const SectionSix = () => {
             <div className='inline-block rounded-2xl bg-[url("https://eduquest.itech-theme.com/wp-content/uploads/2023/08/class-bg.png")]
                     md:h-[373px] 2xl:w-[1320px] w-full bg-no-repeat bg-cover p-[70px] relative bottom-[-186px] text-center'>
                 <h1 data-aos="fade-up" data-aos-delay="200"
-                     className='font-extrabold text-[36px] text-white leading-[1.3] pb-[20px]'>
+                    className='font-extrabold text-[36px] text-white leading-[1.3] pb-[20px]'>
                     Online Best Coaching <span className='text-[#FF3158]'>Lessons </span> <br />
                     For Remote Learning
                 </h1>
-                <p  data-aos="fade-up" data-aos-delay="300"
-                     className='text-white text-[16px] pb-[40px]'>
+                <p data-aos="fade-up" data-aos-delay="300"
+                    className='text-white text-[16px] pb-[40px]'>
                     Architect client-centered total linkage for intuitive benefits dynamically restore.
                 </p>
                 <div className='flex justify-center'>
-                    <Button href='#' label='Join Today'/>
+                    <div data-aos="flip-right" data-aos-delay="400">
+                        <Button href='#' label='Join Today' />
+                    </div>
                 </div>
             </div>
         </section>

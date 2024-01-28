@@ -3,6 +3,7 @@ import Link from 'next/link';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { List } from './components/List';
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const SectionFour = () => {
     useEffect(() => {
@@ -48,7 +49,10 @@ export const SectionFour = () => {
                             <p className='mb-5 text-[#4A5355] text-[18px] font-normal'>
                                 Architect client-centered total linkage for intuitive benefits. Dynamically restore convergence before convergence before real-time .
                             </p>
-                            <button>Explore More</button>
+                            <Link href={'#'} className='flex items-center gap-2 text-[#FF3158] font-bold text-[16px]'>
+                                Explore more
+                                <IoIosArrowRoundForward size={20}/>
+                            </Link>
                         </div>
                     </div>
                     
