@@ -13,15 +13,15 @@ export default function () {
 
   return (
     <div>
-      {/* <SessionOne />
+      <SessionOne />
       <AchievementsSection/>
       <SectionThree/>
-      <SectionFour/> */}
+      <SectionFour/>
       <SectionSix/>
-      {/* <SectionInstructor/>
+      <SectionInstructor/>
       <SectionFAQ/>
       <SessionTwo />
-      <SectionFinal/>   */}
+      <SectionFinal/>  
     </div>
 
   )
