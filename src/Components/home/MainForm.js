@@ -8,15 +8,17 @@ import { SectionFAQ } from "./sectionFAQ/SectionFAQ";
 import { SectionSix } from "./sectionSix/SectionSix";
 import { SectionFinal } from "./sectionFinal/SectionFinal";
 import { SectionInstructor } from "./sectionInstructor/SectionInstructor";
+import { SectionFive } from "./sectionFive/SectionFive";
 
 export default function () {
 
   return (
-    <div>
+    <div className="">
       <SessionOne />
       <AchievementsSection/>
       <SectionThree/>
       <SectionFour/>
+      <SectionFive />
       <SectionSix/>
       <SectionInstructor/>
       <SectionFAQ/>
