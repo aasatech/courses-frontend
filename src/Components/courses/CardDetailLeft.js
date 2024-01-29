@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "../Dropdown";
 
-const CardDetailLeft = () => {
+const CardDetailLeft = ({data}) => {
   return (
     <div className="">
       <figure className="relative w-full h-[428px]">
@@ -13,7 +13,7 @@ const CardDetailLeft = () => {
         <figcaption className="absolute -bottom-16 flex w-full transition-all duration-500 lg:w-[calc(100%-4rem)] justify-between rounded border border-white bg-gray-100 py-14 px-6 shadow-lg shadow-black/5 saturate-200"></figcaption>
       </figure>
       <div className="relative mt-28">
-        <div className="text-4xl font-bold ">Overview</div>
+        <div className="text-4xl font-bold ">{data.name}</div>
         <p className="text-justify mt-3">
           Are you new to PHP or need a refresher? Then this course will help you
           get all the fundamentals of Procedural PHP, Object Oriented PHP,

@@ -1,20 +1,17 @@
 import React from "react";
 
-const CardDetail = () => {
+const CardDetail = ({ data }) => {
   return (
     <div className="p-5 relative flex flex-col bg-clip-border rounded-xl bg-white text-black shadow-gray-900/20 shadow-md w-full ">
       <div>
         <video className="h-full w-full rounded-lg" controls>
-          <source
-            src="https://docs.material-tailwind.com/demo.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
+          <source src={data.image} type="video/mp4" />
+          {data.description}
         </video>
       </div>
       <div className="">
         <div className="block my-4 font-sans text-lg antialiased font-bold leading-normal text-black">
-          Course Pricing
+          {data.pricing}
         </div>
         <div className="block font-sans text-lg antialiased font-bold leading-normal text-pink-500">
           Free
