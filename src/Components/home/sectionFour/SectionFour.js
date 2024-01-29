@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import Link from 'next/link';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { List } from './components/List';
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const SectionFour = () => {
     useEffect(() => {
@@ -34,7 +36,7 @@ export const SectionFour = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-[1fr_404px] max-2xl:grid-cols-[1fr_370px] max-lg:grid-cols-1 gap-4 mt-[30px]'>
+                <div className='grid grid-cols-[1fr_404px] max-2xl:grid-cols-[1fr_370px] max-lg:grid-cols-1 gap-4 mt-[30px] relative'>
                     <div>
                         <img data-aos="fade-right" data-aos-delay="400"
                             className='rounded-xl'
@@ -47,49 +49,30 @@ export const SectionFour = () => {
                             <p className='mb-5 text-[#4A5355] text-[18px] font-normal'>
                                 Architect client-centered total linkage for intuitive benefits. Dynamically restore convergence before convergence before real-time .
                             </p>
-                            <button>Explore More</button>
+                            <Link href={'#'} className='flex items-center gap-2 text-[#FF3158] font-bold text-[16px]'>
+                                Explore more
+                                <IoIosArrowRoundForward size={20}/>
+                            </Link>
                         </div>
                     </div>
-                    <div data-aos="flip-right" data-aos-delay="500" className='px-[20px] pt-[40px] relative h-fit bg-[#002935] text-white rounded-xl max-lg:bottom-10'>
-                        <div className='text-[28px] font-extrabold mb-[20px]'>
+                    
+                    <div data-aos="flip-right" data-aos-delay="500" className=' pt-[40px] z-0 relative h-fit bg-[#002935] text-white rounded-xl max-lg:bottom-10'>
+                        <div className='text-[28px] font-extrabold mb-[20px] px-[20px]'>
                             <span className='w-5 h-5 rounded-full inline-block bg-red-500 mr-[15px]'></span>
                             Explore The Future
                         </div>
-                        <ul className='text-[18px] font-extrabold divide-y-[1px] divide-[#1a434f]'>
-                            <Link href='#' className='pb-[20px] flex justify-between'>Develpment
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
-                            <Link href='#' className='py-[20px] flex justify-between'>Digital Marketing
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
-                            <Link href='#' className='py-[20px] flex justify-between'>Financial
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
-                            <Link href='#' className='py-[20px] flex justify-between'>Business Consulting
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
-                            <Link href='#' className='py-[20px] flex justify-between'>Graphic design
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
-                            <Link href='#' className='py-[20px] flex justify-between'>Development
-                                <span className='hover:bg-red-500 duration-300 rounded-full h-[35px] w-[35px] bg-[#1a434f] flex items-center justify-center'>
-                                    <svg className='stroke-current -rotate-45' width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
-                                </span>
-                            </Link>
+                        <ul className='text-[18px] font-extrabold divide-y-[1px] rounded-xl pb-[20px] divide-[#1a434f] bg-[#002935] px-[20px]'>
+                            <List href='#' title='Development'/>
+                            <List href='#' title='Digital Marketing'/>
+                            <List href='#' title='Financial'/>
+                            <List href='#' title='Business Consulting'/>
+                            <List href='#' title='Graphic design'/>
+                            <List href='#' title='Development'/>
                         </ul>
                         <img
-                            className='absolute bottom-[-50px] right-0 z-[-1]'
+                            className='bottom-[-50px] -z-40 absolute -right-10'
                             src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/shape.png' />
+                    
                     </div>
                 </div>
             </div>

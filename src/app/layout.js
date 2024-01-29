@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/Components/Navbar";
 import { SessionProvider } from "@/store/SessionProvider";
+import { Footer } from "@/Components/home/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         <SessionProvider values={{ item: {} }}>
           <Navbar />
           {children}
+          <Footer />
         </SessionProvider>
       </body>
     </html>

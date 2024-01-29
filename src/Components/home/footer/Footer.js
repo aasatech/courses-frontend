@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaFacebook } from "react-icons/fa";
