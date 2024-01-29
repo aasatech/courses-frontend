@@ -2,8 +2,6 @@
 import React from "react";
 
 const CardInfor = ({ data = [], label, onChange }) => {
-  // console.log("data", data)
-  // console.log
   return (
     <div>
       <div className="p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

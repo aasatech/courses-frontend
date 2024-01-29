@@ -13,7 +13,7 @@ const Card = ({ course }) => {
           width={200}
           height={200}
           className="rounded-t-lg w-full pb-5 "
-          src={`https://course-web-service.onrender.com/${course.image}`}
+          src={course.image_url}
           alt="product image"
         />
       </Link>

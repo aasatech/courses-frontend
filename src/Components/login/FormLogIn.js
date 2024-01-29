@@ -1,14 +1,14 @@
 "use client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
-import MyInput from "@/Components/Input/MyInput";
-import { Button } from "@/Components/Button";
+import MyInput from "../Input/MyInput";
+import { Button } from "../Button";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
-import usePasswordToggle from "@/Components/usePasswordToggle";
-import { useSession } from "@/store/UseSession";
+import usePasswordToggle from "../usePasswordToggle";
+import { useSession } from "../../store/UseSession";
 import { setCookies } from "../../actions/SetCookie";
-import { userGoogle, userLogin } from "@/actions/userService";
+import { userGoogle, userLogin } from "../../actions/userService";
 import Link from "next/link";
 
 const SignupSchema = yup.object().shape({
@@ -20,14 +20,14 @@ const FormLogIn = () => {
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const { setSession } = useSession();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (values, actions) => {
     const user = {
       email: values.email,
       password: values.password,
     };
-    setIsLoading(false);
+    setIsLoading(true);
     try {
       const response = await userLogin(user);
       if (response.token) {
@@ -36,10 +36,10 @@ const FormLogIn = () => {
         setSession({ token: response.token });
         router.push("/home");
         actions.resetForm();
-        setIsLoading(true);
+        setIsLoading(false);
       }
     } catch (error) {
-      setIsLoading(true);
+      setIsLoading(false);
       alert(error.response?.data?.message);
     }
   };

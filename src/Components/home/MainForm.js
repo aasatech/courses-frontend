@@ -1,6 +1,6 @@
-import { Slider } from "@/Components/Slider";
+import { Slider } from "../Slider";
 import React from "react";
 
-export default function () {
+export default function MainForm() {
   return <Slider />;
 }

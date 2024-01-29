@@ -1,27 +1,26 @@
 "use client";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import Image from "next/image";
+// import Image from "next/image";
 import React, { useState } from "react";
 import { Button } from "../Button";
 import MyInput from "../Input/MyInput";
-import { sendContact } from "@/actions/Contact";
+import { sendContact } from "../../actions/Contact";
 import CartContact from "./Cart";
 
 function ContactsForm() {
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoading, setIsLoading] = useState(false);
   const SignupSchema = yup.object().shape({
     name: yup
       .string()
       .required("Required")
       .min(2, "Your name must 2 letter up"),
     email: yup.string().email("Invalid email").required("please input email"),
-    comment: yup
+    subject: yup
       .string()
       .required("Required")
       .min(5, "Your name must 5 letter up"),
-    message: yup
+    comment: yup
       .string()
       .required("Required")
       .min(10, "Your name must 10 letter up"),
@@ -31,19 +30,19 @@ function ContactsForm() {
     const contact = {
       name: values.name,
       email: values.email,
-      subject: values.comment,
-      comment: values.message,
+      subject: values.subject,
+      comment: values.comment,
     };
-    setIsLoading(false);
+    setIsLoading(true);
     try {
       const response = await sendContact(contact);
       if (response.success) {
         alert(response.success);
         actions.resetForm();
-        setIsLoading(true);
+        setIsLoading(false);
       }
     } catch (error) {
-      setIsLoading(true);
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -72,11 +71,12 @@ function ContactsForm() {
                 initialValues={{
                   name: "",
                   email: "",
+                  subject: "",
                   comment: "",
-                  message: "",
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={(values, actions) => {
+                  console.log("true");
                   //   alert(JSON.stringify(values.name));
                   handleRegister(values, actions);
                 }}
@@ -105,8 +105,8 @@ function ContactsForm() {
                       className="mb-5"
                       component={MyInput}
                       label="Your comment"
-                      type="comment"
-                      name="comment"
+                      type="subject"
+                      name="subject"
                       placeholder="Your subject"
                       showError={true}
                     />
@@ -114,8 +114,8 @@ function ContactsForm() {
                       className="mb-5"
                       component={MyInput}
                       label="Your comment"
-                      type="message"
-                      name="message"
+                      type="comment"
+                      name="comment"
                       placeholder="Message"
                       showError={true}
                     />

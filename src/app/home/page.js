@@ -1,12 +1,11 @@
 "use client";
-import MainForm from "@/Components/home/MainForm";
-import { getCookies } from "@/actions/SetCookie";
-import { useSession } from "@/store/UseSession";
 import React, { useEffect } from "react";
+import { useSession } from "../../store/UseSession";
+import { getCookies } from "../../actions/SetCookie";
+import MainForm from "../../Components/home/MainForm";
 
 const page = () => {
   const { session, setSession } = useSession();
-
   useEffect(() => {
     async function handleCheck() {
       const token = await getCookies();
@@ -17,8 +16,6 @@ const page = () => {
     }
     handleCheck();
   }, []);
-
-  // console.log(session);
   return <MainForm />;
 };
 export default page;
