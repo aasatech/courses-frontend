@@ -8,6 +8,7 @@ import { TfiTwitter, TfiInstagram } from "react-icons/tfi";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
 export const SessionOne = () => {
 
   useEffect(() => {
