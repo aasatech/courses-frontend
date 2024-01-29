@@ -82,7 +82,7 @@ export const SectionFive = () => {
     if (category === 'all') {
       filtered = cardData
     } else {
-      filtered = cardData.filter((data, index) => data.category.toLowerCase() === category)
+      filtered = cardData.filter((data) => data.category.toLowerCase() === category)
     }
     filtered.length = 3
     setFilteredData(filtered)
