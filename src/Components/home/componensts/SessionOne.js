@@ -1,16 +1,19 @@
-import React, {useState} from "react";
-// import { Text } from "./componensts/Text";
-// import { Textlarg } from "./componensts/Textlarg";
-// import { Button } from "./componensts/Button";
-// import { Carousel } from "./componensts/Carousel";
+import React, {useEffect,useState} from "react";
 import { Text } from "./Text";
 import { Textlarg } from "./Textlarg";
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
 import { FaFacebookF,FaLinkedinIn } from "react-icons/fa";
 import { TfiTwitter,TfiInstagram } from "react-icons/tfi";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export const SessionOne = () => {
+
+  useEffect(() => {
+    AOS.init()
+    AOS.refresh()
+}, [])
 
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [
@@ -21,7 +24,6 @@ export const SessionOne = () => {
     const handlePrevClick = () => {
         setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
 
-        console.log('prevIndex',activeIndex);
     };
 
     const handleNextClick = () => {
@@ -34,9 +36,13 @@ export const SessionOne = () => {
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1651352076676-58a34812f3d2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
         >
 
-        {<div class="flex justify-evenly items-center max-lg:flex-col py-20 ">
+        {<div class="flex justify-evenly items-center max-md:flex-col md:items-center  py-20 ">
 
-          <div className="md:w-32 lg:w-48 space-y-5">
+        <div data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            data-aos-offset="0">
+            <div className="md:w-32 lg:w-48 space-y-5">
 
             <div className="flex items-center text-white font-bold">{`0${activeIndex + 1}`}
 
@@ -47,26 +53,43 @@ export const SessionOne = () => {
             <div className="flex items-center text-white font-bold">{`0${activeIndex + 1}`}
               {<div class="ml-2 h-0.5 w-7 bg-pink-700 "></div>}
             </div>
-            
+
+            </div>
+        </div>
+          
+
+          <div data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom">
+              <div className=" w-[600px] max-lg:flex-col">
+
+              <Text />
+              <Textlarg />
+
+              <div className="flex space-x-4 ">
+
+                <div data-aos="flip-left" 
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000">
+                  <Button lable={"Explore More"} className={'bg-pink-700 hover:bg-transparent text-white font-semibold hover:text-white py-3 px-4 border border-pink-700 hover:border-pink rounded'}/>
+                </div>
+
+                <div data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                >
+                  <Button lable={"Explore More"} className={'hover:transparent text-white font-semibold hover:text-pink-700 py-3 px-4 border border-white-500 hover:border-pink-700 rounded'}/>
+                </div>
+              </div>
+
+              </div>
           </div>
 
-            <div className=" w-[600px] max-lg:flex-col">
-
-                <Text />
-                <Textlarg />
-
-                <div className="flex space-x-4 ">
-                <Button lable={"Explore More"} className={'bg-pink-700 hover:bg-transparent text-white font-semibold hover:text-white py-3 px-4 border border-pink-700 hover:border-pink rounded'}/>
-                <Button lable={"Explore More"} className={'hover:transparent text-white font-semibold hover:text-pink-700 py-3 px-4 border border-white-500 hover:border-pink-700 rounded'}/>
-                </div>
-                
-            </div>
-
-            <div className="flex ">
-                <div className="py-10 w-[516px] lg:w-100 xl:w-400 items-start z-0">
+            <div data-aos="fade-left">
+              <div className="flex ">
+              
+                <div className="py-10 w-[516px]   z-0">
                     <Carousel images={images} prev={handlePrevClick} next={handleNextClick} activeIndex={activeIndex}/>
                 </div> 
-
                 <div className="text-white text-1xl space-y-4 pt-[50px] ml-5">
                 <FaFacebookF className="hover:text-pink-700"/>
                 <TfiTwitter className="hover:text-pink-700"/>
@@ -78,6 +101,7 @@ export const SessionOne = () => {
                     <div class="flex ml-2 h-7 w-0.5 bg-pink-700"></div>
                 
                 </div>
+              </div>       
             </div>
 
             <div className="absolute top-[170px] right-[650px] z-10">

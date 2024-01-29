@@ -1,8 +1,16 @@
-import React from "react";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import React, {useEffect} from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { GoArrowDownLeft } from "react-icons/go";
 
 export const SessionTwo = () =>{
+
+    useEffect(() => {
+        AOS.init()
+        AOS.refresh()
+    }, [])
+
     return (
         <div className="w-full py-10 ">
             
@@ -52,57 +60,62 @@ export const SessionTwo = () =>{
 
                 <div className="w-full  text-center items-center justify-center ">
                 {/* sm:text-zinc-500 md:text-black lg:text-pink-600 xl:text-orange-800  */}
-
-                        <div className=" flex items-center justify-center">
-                            <div className="lg:h-3 lg:w-3 bg-rose-500 rounded-full shadow-pink-600 shadow-2xl mr-2"></div>
-                            <h1 className="lg:text-xl font-bold text-pink-600">Student Feedback</h1>
-                        </div>
-
-                        <h1 className="lg:text-2xl font-bold">Student are Says</h1>
-                        <h1 className="lg:text-2xl font-bold">EduQues
-                            <span className="text-pink-600 underline"> About Courses</span>
-                        </h1> 
-
-                    
-                    <div className=" md:h-[380px] md:w-[600px] bg-sky-950 rounded-lg py-10 px-10 my-10">
-
-                        <div className="flex justify-evenly items-center ">
-
-                            <div>
-                                <p className="text-lg font-bold text-white py-4 text-left">
-                                "Sam is somebody you need as a steward of your brand. He's able to craft 
-                                compelling brand narratives that bring a company's vision to life. We care about safety big time - and 
-                                so do site visitors. With a Shared Hosting account, LMS site.."
-                                </p>
-                                <div className="flex items-center py-5">
-                                <div className="flex  items-center justify-center h-20 w-20 rounded-full overflow-hidden relative">
-                                    <img
-                                    src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.jpg?s=612x612&w=0&k=20&c=QjebAlXBgee05B3rcLDAtOaMtmdLjtZ5Yg9IJoiy-VY="
-                                    alt="profile"
-                                    fill
-                                    className="object-cover w-full h-full rounded-full border-2 border-white"
-                                    />
-                                </div>
-                                <div className="ml-4 text-left">
-                                    <h1 className="text-white">Ronals Rechart</h1>
-                                    <h1 className="text-white">Developer</h1>
-                                </div>
-                            </div>
-                            </div>
-                            
-                            <div className="pl-10 space-y-5">
-                                <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center z-0">
-                                <MdArrowOutward className="text-white z-50" />
-                                </div>
-
-                                <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center">
-                                <GoArrowDownLeft className="text-white" />
-                                </div>
-                            </div>
-
-                        </div>
-                    
+                <div data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom">
+                    <div className=" flex items-center justify-center">
+                        <img src='https://eduquest.itech-theme.com/wp-content/uploads/2023/08/dot.png' />
+                        <h1 className="ml-1 lg:text-xl font-bold text-pink-600">Student Feedback</h1>
                     </div>
+
+                    <h1 className="lg:text-2xl font-bold">Student are Says</h1>
+                    <h1 className="lg:text-2xl font-bold">EduQues
+                        <span className="text-pink-600 underline"> About Courses</span>
+                    </h1> 
+                </div>
+
+                    <div data-aos="fade-up"
+                        data-aos-anchor-placement="top-bottom">
+                        <div className=" md:h-[380px] md:w-[600px] bg-sky-950 rounded-lg py-10 px-10 my-10">
+
+                            <div className="flex justify-evenly items-center ">
+
+                                <div>
+                                    <p className="text-lg font-bold text-white py-4 text-left">
+                                    "Sam is somebody you need as a steward of your brand. He's able to craft 
+                                    compelling brand narratives that bring a company's vision to life. We care about safety big time - and 
+                                    so do site visitors. With a Shared Hosting account, LMS site.."
+                                    </p>
+                                    <div className="flex items-center py-5">
+                                    <div className="flex  items-center justify-center h-20 w-20 rounded-full overflow-hidden relative">
+                                        <img
+                                        src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.jpg?s=612x612&w=0&k=20&c=QjebAlXBgee05B3rcLDAtOaMtmdLjtZ5Yg9IJoiy-VY="
+                                        alt="profile"
+                                        fill
+                                        className="object-cover w-full h-full rounded-full border-2 border-white"
+                                        />
+                                    </div>
+                                    <div className="ml-4 text-left">
+                                        <h1 className="text-white">Ronals Rechart</h1>
+                                        <h1 className="text-white">Developer</h1>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                                <div className="pl-10 space-y-5">
+                                    <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center z-0">
+                                    <MdArrowOutward className="text-white z-50" />
+                                    </div>
+
+                                    <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center">
+                                    <GoArrowDownLeft className="text-white" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <div className="w-full">
