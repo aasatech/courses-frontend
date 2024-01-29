@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react'
 import { Card } from './components/Card'
 import { SubCard } from './components/SubCard'
-import AOS from "aos"
-import "aos/dist/aos.css"
-
 
 export const SectionFinal = () => {
-    useEffect(() => {
-        AOS.init()
-        AOS.refresh()
-    }, [])
     return (
         <section className='grid place-items-center px-[10px]'>
             <div className='max-w-[1320px] pb-[110px]'>

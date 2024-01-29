@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from "react";
 import { SessionOne } from "./componensts/SessionOne";
 import { SessionTwo } from "./componensts/SessionTwo";
 import { AchievementsSection } from "./achievements/AchievementsSection";
@@ -9,21 +9,26 @@ import { SectionSix } from "./sectionSix/SectionSix";
 import { SectionFinal } from "./sectionFinal/SectionFinal";
 import { SectionInstructor } from "./sectionInstructor/SectionInstructor";
 import { SectionFive } from "./sectionFive/SectionFive";
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default function () {
-
+  useEffect(() => {
+    AOS.init({ once: true })
+    AOS.refresh()
+  }, [])
   return (
     <div className="">
       <SessionOne />
-      <AchievementsSection/>
-      <SectionThree/>
-      <SectionFour/>
+      <AchievementsSection />
+      <SectionThree />
+      <SectionFour />
       <SectionFive />
-      <SectionSix/>
-      <SectionInstructor/>
-      <SectionFAQ/>
+      <SectionSix />
+      <SectionInstructor />
+      <SectionFAQ />
       <SessionTwo />
-      <SectionFinal/>  
+      <SectionFinal />
     </div>
 
   )

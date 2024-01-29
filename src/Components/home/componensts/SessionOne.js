@@ -6,15 +6,7 @@ import { Carousel } from "./Carousel";
 import { FaFacebookF,FaLinkedinIn } from "react-icons/fa";
 import { TfiTwitter,TfiInstagram } from "react-icons/tfi";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
 export const SessionOne = () => {
-
-  useEffect(() => {
-    AOS.init()
-    AOS.refresh()
-}, [])
 
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [

@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react'
 import { Card } from './components/Card'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 export const AchievementsSection = () => {
-    useEffect(() => {
-        AOS.init()
-        AOS.refresh()
-    }, [])
 
     const cardData = [{
         title: '40K+',

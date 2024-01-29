@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react'
 import { Card } from './components/Card'
-import AOS from "aos"
-import "aos/dist/aos.css"
 
 export const SectionThree = () => {
-    useEffect(() => {
-        AOS.init()
-        AOS.refresh()
-    }, [])
+   
     return (
         <section className='grid place-items-center pt-[120px] px-[10px]'>
             <div className='grid grid-cols-[1fr_652.667px] max-lg:grid-cols-1 max-lg:place-items-center max-lg:max-w-[670px] gap-16 px-3 max-lg:px-0 relative' >
