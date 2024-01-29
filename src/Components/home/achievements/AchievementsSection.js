@@ -38,7 +38,7 @@ export const AchievementsSection = () => {
                         cardData.map((data, index) => (
                             <div key={index}
                                  data-aos="flip-up" data-aos-delay={`${index+1}00`} className='max-md:w-full'>
-                                <Card data={data} />
+                                <Card data={data} className={data.imageBackgroundColor}/>
                             </div>
                         ))
                     }

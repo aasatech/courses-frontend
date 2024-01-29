@@ -1,7 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card } from './components/Card'
+import Link from 'next/link'
 
 export const SectionFive = () => {
+  const [active, setActive] = useState('all')
+
+  const cardData = [{
+    title: 'Nutrition: Build Your Perfect Diet & Meal Plan',
+    category: 'Marketing',
+    image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/1_0002_18-1-1.jpg',
+    lessons: '6',
+    time: '4 hours',
+    price: 'Free',
+    url: '#',
+    categoryUrl: '#',
+    author: {
+      image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png',
+      name: 'SK AL'
+    },
+    rate: {
+      stars: '4.67',
+      count: '10'
+    }
+  }, {
+    title: 'WordPress for Beginners – Master WordPress',
+    category: 'Design',
+    image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/course4-1.jpg',
+    lessons: '60',
+    time: '1000 hours 30 minutes',
+    price: '$99.99',
+    url: '#',
+    categoryUrl: '#',
+    author: {
+      image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png',
+      name: 'SK AL'
+    },
+    rate: {
+      stars: '4.67',
+      count: '10'
+    }
+  }, {
+    title: 'Ultimate Photoshop Training: From Beginner',
+    category: 'Design',
+    image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/course8-1.jpg',
+    lessons: '6',
+    time: '4 hours 30 minutes',
+    price: 'Free',
+    url: '#',
+    categoryUrl: '#',
+    author: {
+      image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png',
+      name: 'SK AL'
+    },
+    rate: {
+      stars: '4.67',
+      count: '10'
+    }
+  }, {
+    title: 'User Experience Design Essentials',
+    category: 'Business',
+    image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/course8-1.jpg',
+    lessons: '6',
+    time: '4 hours 30 minutes',
+    price: 'Free',
+    url: '#',
+    categoryUrl: '#',
+    author: {
+      image: 'https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png',
+      name: 'SK AL'
+    },
+    rate: {
+      stars: '4.67',
+      count: '10'
+    }
+  }]
+
+  const [filteredData, setFilteredData] = useState(cardData.slice(0, 3))
+  function handleTabs(category) {
+    setActive(category)
+    let filtered = []
+    if (category === 'all') {
+      filtered = cardData
+    } else {
+      filtered = cardData.filter((data, index) => data.category.toLowerCase() === category)
+    }
+    filtered.length = 3
+    setFilteredData(filtered)
+  }
   return (
     <section className=''>
       <div className='flex justify-center pt-[130px] pb-[374px] bg-white
@@ -12,7 +97,7 @@ export const SectionFive = () => {
               Welcome To Education
               <span className='w-[15px] h-[15px] rounded-full bg-[#FF3158]'></span>
             </h1>
-            <p className='ml-[100px] text-end'>
+            <p className='ml-[100px] text-end text-white text-[18px]'>
               Architect client-centered total linkage for intuitive benefits. Dynamically restore convergence before real-time restore .convergence before real-time
             </p>
           </div>
@@ -64,7 +149,7 @@ export const SectionFive = () => {
           <div className='grid grid-cols-3 max-w-[1300px] max-md:grid-cols-1 gap-5'>
             {
               filteredData.map((data, index) => (
-                <div key={index} data-aos="fade-up" data-aos-delay={`${index+1}00`}>
+                <div key={index} data-aos="fade-up" data-aos-delay={`${index + 1}00`}>
                   <Card data={data} />
                 </div>
               ))
@@ -76,7 +161,7 @@ export const SectionFive = () => {
         <Link
           data-aos="flip-up" data-aos-delay='100'
           href="#"
-          className='bg-red-500 duration-300 ease-in-out rounded-lg py-[15px] px-[25px] text-white flex items-center justify-between border-[0.8px] border-red-500 hover:bg-white hover:text-black'>
+          className='bg-red-500 duration-300 rounded-lg py-[15px] px-[25px] text-white flex items-center justify-between border-[0.8px] border-red-500 hover:bg-white hover:text-black'>
           Explore More
           <svg className='stroke-current' width={30} height={30} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 7L18.5 12.5L13 18M18.5 12.5H6" strokeWidth="1.2"></path> </g></svg>
         </Link>

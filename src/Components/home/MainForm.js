@@ -10,6 +10,7 @@ import { SectionFinal } from "./sectionFinal/SectionFinal";
 import { SectionInstructor } from "./sectionInstructor/SectionInstructor";
 import AOS from "aos"
 import "aos/dist/aos.css"
+import { SectionFive } from "./sectionFive/SectionFive";
 
 export default function () {
   useEffect(() => {
