@@ -1,15 +1,9 @@
 import React, { useEffect } from 'react'
-import Link from 'next/link';
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import Link from 'next/link'
 import { List } from './components/List';
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const SectionFour = () => {
-    useEffect(() => {
-        AOS.init()
-        AOS.refresh()
-    }, [])
     return (
         <section className='py-[60px] px-[10px] grid place-items-center'>
             <div className='max-w-[1320px] max-lg:place-items-center max-lg:max-w-[670px]'>

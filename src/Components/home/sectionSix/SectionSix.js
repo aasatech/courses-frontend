@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react'
-import AOS from "aos"
-import "aos/dist/aos.css"
 import { Button } from './components/Button'
 
 export const SectionSix = () => {
-    useEffect(() => {
-        AOS.init()
-        AOS.refresh()
-    }, [])
     return (
         <section className='grid place-items-center gap-6 px-[10px]'>
             <div className='grid grid-cols-[1fr_1fr] max-w-[1320px] max-xl:max-w-[1140px] max-lg:grid-cols-1'>

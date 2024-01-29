@@ -8,19 +8,13 @@ import { TfiTwitter, TfiInstagram } from "react-icons/tfi";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
 export const SessionOne = () => {
 
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const images = [
-    "https://media.istockphoto.com/id/1399145579/photo/lovely-pretty-asian-preteen-girl-doing-a-homework-at-desk.jpg?s=2048x2048&w=is&k=20&c=5eHgU_UR5bSMqSkCbKhl_uFVE1rxDS8n1WATde4mGMU=",
-    "https://media.istockphoto.com/id/1615624309/photo/a-kind-asian-female-teacher-helps-a-young-adorable-girl-read-a-book-and-do-homework.jpg?s=2048x2048&w=is&k=20&c=dQcgtNZOdx-o8ovLkIhSA3PHZLWpR1FNRMN2pkJXdgE="
-  ];
+    const [activeIndex, setActiveIndex] = useState(0);
+    const images = [
+        "https://media.istockphoto.com/id/1399145579/photo/lovely-pretty-asian-preteen-girl-doing-a-homework-at-desk.jpg?s=2048x2048&w=is&k=20&c=5eHgU_UR5bSMqSkCbKhl_uFVE1rxDS8n1WATde4mGMU=",
+        "https://media.istockphoto.com/id/1615624309/photo/a-kind-asian-female-teacher-helps-a-young-adorable-girl-read-a-book-and-do-homework.jpg?s=2048x2048&w=is&k=20&c=dQcgtNZOdx-o8ovLkIhSA3PHZLWpR1FNRMN2pkJXdgE="
+    ];
 
   const handlePrevClick = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));

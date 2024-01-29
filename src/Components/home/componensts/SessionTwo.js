@@ -1,15 +1,8 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { GoArrowDownLeft } from "react-icons/go";
 
 export const SessionTwo = () => {
-
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-    }, []);
 
     return (
         <section className="w-full py-10 ">
