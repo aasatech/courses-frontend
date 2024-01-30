@@ -17,56 +17,55 @@ const Courses = () => {
   const [isloading, setIsLoading] = useState(false);
 
   const [itemOffset, setItemOffset] = useState(0);
-  const [items, setItems] = useState([])
-
+  const [items, setItems] = useState([]);
 
   const handleChangePage = (event) => {
-    const newOffset = (event.selected+1)
+    const newOffset = event.selected + 1;
     // console.log(
     //   `User requested page number ${event.selected}, which is offset ${newOffset}`
     // );
-    setItemOffset(newOffset)
-  }
-
+    setItemOffset(newOffset);
+  };
 
   // const []
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await course(selectCategory, selectTag, itemOffset);
-        setItems(response.meta.pages)
-        setCourses(response);
-        setIsLoading(true);
+  const fetchCourses = async () => {
+    try {
+      const response = await course(selectCategory, selectTag, itemOffset);
+      setItems(response.meta.pages);
+      setCourses(response);
+      setIsLoading(true);
 
-        // console.log("course all", response);
-      } catch (error) {
-        console.log("error", error);
-        setIsLoading(false);
-      }
-    };
-    const fetchCategories = async () => {
-      try {
-        const response = await category();
-        setCategories(response);
-        // console.log("categories", response);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-    const fetchTags = async () => {
-      try {
-        const response = await tag();
-        setTags(response);
-        // console.log("tags", response);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+      // console.log("course all", response);
+    } catch (error) {
+      console.log("error", error);
+      setIsLoading(false);
+    }
+  };
+  const fetchCategories = async () => {
+    try {
+      const response = await category();
+      setCategories(response);
+      // console.log("categories", response);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  const fetchTags = async () => {
+    try {
+      const response = await tag();
+      setTags(response);
+      // console.log("tags", response);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  useEffect(() => {
     fetchCourses();
     fetchCategories();
     fetchTags();
-  }, [selectCategory,selectTag, itemOffset]);
+  }, [selectCategory, selectTag, itemOffset]);
 
   const handleChangeCategory = (e, id) => {
     const { checked } = e.target;
@@ -111,7 +110,10 @@ const Courses = () => {
               ))}
             </div>
             <div>
-                <Pagination pageCount={items.length} onPageChange={handleChangePage}/>
+              <Pagination
+                pageCount={items.length}
+                onPageChange={handleChangePage}
+              />
             </div>
           </div>
         </div>

@@ -7,16 +7,18 @@ import { coursesDetail } from "@/actions/courses";
 const CourseDetail = ({id}) => {
   const [courseDetail, setCourseDetail] = useState({});
 
-  useEffect(()=>{
-    const fetchCourseDetail = async()=>{
-      try{
-        const response = await coursesDetail(id)
-        setCourseDetail(response)
-        // console.log("response",response)
-      } catch (error) {
-        console.log("error", error)
-      }
+
+  const fetchCourseDetail = async()=>{
+    try{
+      const response = await coursesDetail(id)
+      setCourseDetail(response)
+      // console.log("response",response)
+    } catch (error) {
+      console.log("error", error)
     }
+  }
+  
+  useEffect(()=>{    
     fetchCourseDetail()
   },[id])
   // console.log("course Detail",courseDetail)

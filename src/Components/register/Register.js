@@ -53,14 +53,17 @@ export const Register = () => {
         if (responseLogin.token) {
           setCookies(responseLogin.token);
           setSession({ token: responseLogin.token });
+          actions.formReset();
           router.push("/home");
           setIsLoading(true);
         }
       }
     } catch (error) {
-      setIsLoading(false);
-      // console.log("error", e)
-      console.log("error: ", error.response?.data?.message);
+      // setIsLoading(false);
+      // console.log("error: ", error.response?.data?.message);
+
+      setIsLoading(true);
+      alert(error.response?.data?.message);
     }
   };
 

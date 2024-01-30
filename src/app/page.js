@@ -8,14 +8,14 @@ import { useEffect } from "react";
 export default function Home() {
   const { session, setSession } = useSession();
 
+  async function handleCheck() {
+    const token = await getCookies();
+    console.log("token", token?.value);
+    setSession({
+      token: token?.value,
+    });
+  }
   useEffect(() => {
-    async function handleCheck() {
-      const token = await getCookies();
-      console.log("token", token?.value);
-      setSession({
-        token: token?.value,
-      });
-    }
     handleCheck();
   }, []);
 
