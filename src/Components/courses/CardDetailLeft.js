@@ -13,7 +13,7 @@ const CardDetailLeft = ({ data }) => {
           className=" w-full rounded-xl object-cover object-center h-full "
           src={data.image_url}
           alt="nature image"
-        />
+        /> 
         <figcaption className="absolute -bottom-16 flex w-full transition-all duration-500 lg:w-[calc(100%-4rem)]  justify-between rounded border border-white bg-gray-100 py-6 px-6 shadow-lg shadow-black/5 saturate-200">
           <div className="flex mx-auto">
             <div className=" block xl:lg:grid grid-cols-3 xl:divide-x-2  divide-pink-500">

@@ -17,8 +17,8 @@ const Dropdown = ({ data, label }) => {
         } bg-gray-200 p-4 w-full flex items-center justify-between font-bold text-blue-700 text-lg -tracking-wider border-2 border-transparent border-slate-300  `}
       >
         {label}
-        (
-        <FontAwesomeIcon icon={!isOpen ? faCaretDown : faCaretUp} />)
+
+        <FontAwesomeIcon icon={!isOpen ? faCaretDown : faCaretUp} />
       </button>
 
       {isOpen && (

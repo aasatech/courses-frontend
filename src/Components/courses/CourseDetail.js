@@ -10,7 +10,7 @@ const CourseDetail = ({ id }) => {
   const fetchCourseDetail = async () => {
     try {
       const response = await coursesDetail(id);
-      setCourseDetail(response.data);
+      setCourseDetail(response);
       console.log("course all", response);
     } catch (error) {
       console.log("error", error);

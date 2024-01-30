@@ -4,8 +4,8 @@ import * as yup from "yup";
 import React, { useState } from "react";
 import { Button } from "../Button";
 import MyInput from "../Input/MyInput";
-import { sendContact } from "../../actions/Contact";
 import CartContact from "./Cart";
+import { sendContact } from "../../actions/contact";
 
 function ContactsForm() {
   const [isLoading, setIsLoading] = useState(false);

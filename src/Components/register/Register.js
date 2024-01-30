@@ -60,7 +60,7 @@ export const Register = () => {
         }
       }
     } catch (error) {
-      setIsLoading(true);
+      setIsLoading(false);
 
       alert(error.response?.data?.message);
     }
