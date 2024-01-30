@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
-import {MdArrowOutward} from 'react-icons/md';
-import {GoArrowDownLeft} from 'react-icons/go';
+import React, { useEffect } from 'react';
+import { MdArrowOutward } from 'react-icons/md';
+import { GoArrowDownLeft } from 'react-icons/go';
+import Link from 'next/link';
 
 export const SessionTwo = () => {
   return (
-    <section className="w-full py-10 ">
+    <section className="w-full py-10 px-[10px] overflow-hidden">
       <div className=" gap-4 flex">
         <div className="hidden md:block w-1/4">
           <div className="flex  relative top-10 left-[120px] items-center justify-center h-[100px] w-[100px] rounded-full overflow-hidden object-cover">
@@ -68,22 +69,26 @@ export const SessionTwo = () => {
                 </div>
 
                 <div className="pl-10 space-y-5 md:hidden">
-                  <div className=" h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-[#ff3158]  items-center justify-center z-0">
+                  <Link href={'#'}
+                    className=" h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex duration-200 hover:bg-[#ff3158]  items-center justify-center z-0">
                     <MdArrowOutward className="text-white z-50" />
-                  </div>
-                  <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-[#ff3158]  items-center justify-center">
-                    <GoArrowDownLeft className="text-white" />
-                  </div>
+                  </Link>
+                  <Link href={'#'} 
+                    className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex duration-200 hover:bg-[#ff3158]  items-center justify-center">
+                    <MdArrowOutward className="text-white z-10 rotate-90" />
+                  </Link>
                 </div>
               </div>
 
               <div className="pl-10 space-y-5 hidden md:block">
-                <div className=" h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center z-0">
-                  <MdArrowOutward className="text-white z-50" />
-                </div>
-                <div className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex hover:bg-pink-600  items-center justify-center">
-                  <GoArrowDownLeft className="text-white" />
-                </div>
+                <Link href={'#'} 
+                  className=" h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex duration-200 hover:bg-pink-600  items-center justify-center z-0">
+                  <MdArrowOutward className="text-white z-10" />
+                </Link>
+                <Link href={'#'} 
+                className="h-[50px] w-[50px] rounded-full bg-white bg-opacity-20 flex duration-200 hover:bg-pink-600  items-center justify-center">
+                  <MdArrowOutward className="text-white z-10 rotate-90" />
+                </Link>
               </div>
             </div>
           </div>

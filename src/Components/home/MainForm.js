@@ -23,19 +23,19 @@ export default function () {
   const pathname = usePathname();
   return (
     <div>
-      {pathname === '/' &&
+      {/* {pathname === '/' &&
         <NavbarHomePage />
-      }
-      <SessionOne />
-      <AchievementsSection />
-      <SectionThree />
-      <SectionFour />
-      <SectionFive />
-      <SectionSix />
-      <SectionInstructor />
-      <SectionFAQ />
+      } */}
+      {/* <SessionOne /> */}
+      {/* <AchievementsSection /> */}
+      {/* <SectionThree /> */}
+      {/* <SectionFour /> */}
+      {/* <SectionFive /> */}
+      {/* <SectionSix /> */}
+      {/* <SectionInstructor /> */}
+      {/* <SectionFAQ /> */}
       <SessionTwo />
-      <SectionFinal />
+      {/* <SectionFinal /> */}
     </div>
 
   )
