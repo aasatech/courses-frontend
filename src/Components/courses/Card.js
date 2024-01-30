@@ -3,18 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { toDate } from "@/utils/toDate";
 
-const Card = (props) => {
+const Card = ({course}) => {
+  // console.log("cou", course.id)
   return (
       <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
+        <Link href={`/courses/${course.id}`}>
           <Image 
            width={200} height={200} 
             className="rounded-t-lg w-full pb-5 "
-            src= {`https://course-web-service.onrender.com/${props.course.image}`}
+            src={course.image_url}
             alt="product image"
           />
-        </a>
+        </Link>
         <div className="px-5 pb-5">
           <div className="flex justify-between">
             <div className="bg-pink-100 rounded-md p-1">
@@ -22,13 +25,13 @@ const Card = (props) => {
             </div>
             <div>
               <FontAwesomeIcon width={30} height={30} icon={faClock} />
-              <span> 4 Hours</span>
+              <span> {toDate(course.created_at)} </span>
             </div>
           </div>
 
           <a href="#">
             <h5 className=" truncate text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {props.course.name}
+              {course.name}
             </h5>
           </a>
           <div className="flex items-center mt-2.5 mb-5">

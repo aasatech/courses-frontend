@@ -29,7 +29,7 @@ const SignupSchema = yup.object().shape({
 export const Register = () => {
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const [ConfirmPasswordInputType, ConfirmToggleIcon] = usePasswordToggle();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { setSession } = useSession();
   const router = useRouter();
   const handleRegister = async (values, actions) => {
@@ -40,7 +40,6 @@ export const Register = () => {
       password: values.password,
       password_confirmation: values.confirmPassword,
     };
-    setIsLoading(false);
     try {
       const responseRegister = await userRegister(newUser);
       if (responseRegister) {
@@ -59,9 +58,9 @@ export const Register = () => {
         }
       }
     } catch (error) {
-      setIsLoading(true);
+      setIsLoading(false);
       // console.log("error", e)
-      alert(error.response?.data?.message);
+      console.log("error: ", error.response?.data?.message);
     }
   };
 

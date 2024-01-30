@@ -20,7 +20,7 @@ const FormLogIn = () => {
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const { setSession } = useSession();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (values, actions) => {
     const user = {
