@@ -3,7 +3,7 @@ import { Button } from './components/Button'
 
 export const SectionSix = () => {
     return (
-        <section className='grid place-items-center gap-6 px-[10px]'>
+        <section className='grid place-items-center gap-6 px-[10px] overflow-hidden'>
             <div className='grid grid-cols-[1fr_1fr] max-w-[1320px] max-xl:max-w-[1140px] max-lg:grid-cols-1'>
                 <div className='pt-20'>
                     <h1 data-aos="fade-up" data-aos-delay="200" className='flex font-extrabold text-[18px] text-red-500 whitespace-nowrap'>
