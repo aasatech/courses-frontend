@@ -60,8 +60,8 @@ export const Register = () => {
         }
       }
     } catch (error) {
-      setIsLoading(false);
-      console.log(error);
+      setIsLoading(true);
+
       alert(error.response?.data?.message);
     }
   };
