@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
 import Rating from "./Rating";
 import Image from "next/image";
+import { Label } from "flowbite-react";
 
-const CardDetailLeft = ({ data }) => {
+const CardDetailLeft = ({ data, label }) => {
   // console.log(courseDetail)
   return (
     <div className="">
@@ -125,8 +126,8 @@ const CardDetailLeft = ({ data }) => {
       <div className="text-2xl font-bold mt-5">Course Content</div>
 
       <div className="">
-        <Dropdown data={data.chapters} />
-        <Dropdown data={[]} />
+        <Dropdown data={data.chapters} label="Adavance Concepts" />
+        <Dropdown data={[]} label="Basic Concepts" />
       </div>
 
       <div className="m-10">Student Ratings & Reviews</div>

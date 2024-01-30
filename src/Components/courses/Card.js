@@ -4,7 +4,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { toDate } from "@/utils/toDate";
+import dayjs from 'dayjs'
 
 const Card = ({course}) => {
   // console.log("cou", course.id)
@@ -25,7 +25,7 @@ const Card = ({course}) => {
             </div>
             <div>
               <FontAwesomeIcon width={30} height={30} icon={faClock} />
-              <span> {toDate(course.created_at)} </span>
+              <span> {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")} </span>
             </div>
           </div>
 

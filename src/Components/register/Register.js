@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import MyInput from "@/Components/MyInput";
-import { Button } from "@/Components/Button";
+import { Button } from "../Button";
 import * as yup from "yup";
-import usePasswordToggle from "@/Components/usePasswordToggle";
+import usePasswordToggle from "../usePasswordToggle";
 import { useRouter } from "next/navigation";
-import { userLogin, userRegister } from "@/actions/userService";
-import { useSession } from "@/store/UseSession";
+import { userRegister, userLogin } from "../../actions/userService";
+import { useSession } from "../../store/UseSession";
 import { setCookies } from "../../actions/SetCookie";
+import MyInput from "../MyInput";
 
 const SignupSchema = yup.object().shape({
   name: yup
@@ -40,6 +40,7 @@ export const Register = () => {
       password: values.password,
       password_confirmation: values.confirmPassword,
     };
+    setIsLoading(true);
     try {
       const responseRegister = await userRegister(newUser);
       if (responseRegister) {
@@ -53,18 +54,17 @@ export const Register = () => {
         if (responseLogin.token) {
           setCookies(responseLogin.token);
           setSession({ token: responseLogin.token });
-          actions.formReset();
+          actions.resetForm();
           router.push("/home");
-          setIsLoading(true);
+          setIsLoading(false);
         }
       }
     } catch (error) {
-      setIsLoading(true);
+      setIsLoading(false);
 
       alert(error.response?.data?.message);
     }
   };
-
   return (
     <div className="flex justify-center relative">
       <Formik
@@ -78,7 +78,6 @@ export const Register = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          // alert(JSON.stringify(values.name))
           handleRegister(values, actions);
         }}
       >
@@ -155,7 +154,6 @@ export const Register = () => {
                   render={(msg) => <div className="text-red-500">{msg}</div>}
                 />
               </div>
-
               <div>
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Confirm Password

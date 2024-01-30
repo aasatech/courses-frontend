@@ -42,6 +42,7 @@ const Courses = () => {
       setIsLoading(false);
     }
   };
+
   const fetchCategories = async () => {
     try {
       const response = await category();
@@ -51,6 +52,7 @@ const Courses = () => {
       console.log("error", error);
     }
   };
+
   const fetchTags = async () => {
     try {
       const response = await tag();
