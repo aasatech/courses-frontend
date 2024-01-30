@@ -4,7 +4,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { toDate } from "../../utils/toDate";
 const Card = ({ course }) => {
   return (
     <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -24,7 +24,7 @@ const Card = ({ course }) => {
           </div>
           <div>
             <FontAwesomeIcon width={30} height={30} icon={faClock} />
-            <span> 4 Hours</span>
+            <span> {toDate(course.created_at)}</span>
           </div>
         </div>
 

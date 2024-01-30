@@ -5,6 +5,7 @@ import CardInfor from "./CardInfor";
 import { tags as tag } from "../../actions/Tags";
 import { courses as course } from "../../actions/courses";
 import { categories as category } from "../../actions/categoies";
+import Pagination from "./Pagination";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -12,12 +13,15 @@ const Courses = () => {
   const [tags, setTags] = useState([]);
   const [selectCategory, setSelectCategory] = useState([]);
   const [selectTag, setSelectTag] = useState([]);
+  const [itemOffset, setItemOffset] = useState(1);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await course(selectCategory, selectTag);
-        setCourses(response.data);
+        const response = await course(selectCategory, selectTag, itemOffset);
+        setCourses(response);
+        setItems(response.meta.pages);
         console.log("course all", response);
       } catch (error) {
         console.log("error", error);
@@ -42,26 +46,15 @@ const Courses = () => {
     fetchCourses();
     fetchCategories();
     fetchTags();
-  }, [selectCategory, selectTag]);
+  }, [selectCategory, selectTag, itemOffset]);
 
-  console.log(courses)
+  const handlePageClick = (event) => {
+    const newOffset = event.selected + 1;
+    setItemOffset(newOffset);
+  };
 
-  // useEffect(() => {
-  //   setData(courses);
-  // }, [courses]);
-
-  // useEffect(() => {
-  //   const fetchCourses = async () => {
-  //     try {
-  //       const response = await course(selectCategory, selectTag);
-  //       setCourses(response.results);
-  //       console.log("course", response);
-  //     } catch (error) {
-  //       console.log("error", error);
-  //     }
-  //   };
-  //   fetchCourses();
-  // }, []);
+  console.log(items);
+  console.log(itemOffset);
 
   const handleChangeCategory = (e, id) => {
     const { checked } = e.target;
@@ -98,9 +91,12 @@ const Courses = () => {
       </div>
       <div className="2xl:col-span-3 xl:col-span-3 lg:col-span-3 md:col-span-2">
         <div className="grid 2xl:grid-cols-3 xl:grid-cols-3  lg:grid-cols-2 md:grid-cols-1 :grid-cols-1 gap-4">
-          {courses?.map((course, index) => (
+          {courses.data?.map((course, index) => (
             <Card course={course} key={index} />
           ))}
+        </div>
+        <div className="flex justify-center my-10">
+          <Pagination pageCount={items.length} onPageChange={handlePageClick} />
         </div>
       </div>
     </div>
