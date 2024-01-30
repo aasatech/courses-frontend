@@ -34,8 +34,8 @@ const FormLogIn = () => {
         console.log(response.token);
         setCookies(response.token);
         setSession({ token: response.token });
-        router.push("/home");
         actions.resetForm();
+        router.push("/home");
         setIsLoading(false);
       }
     } catch (error) {

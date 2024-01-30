@@ -1,7 +1,6 @@
 "use client";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
-// import Image from "next/image";
 import React, { useState } from "react";
 import { Button } from "../Button";
 import MyInput from "../Input/MyInput";
@@ -36,8 +35,8 @@ function ContactsForm() {
     setIsLoading(true);
     try {
       const response = await sendContact(contact);
-      if (response.success) {
-        alert(response.success);
+      if (response.message) {
+        alert(response.message);
         actions.resetForm();
         setIsLoading(false);
       }

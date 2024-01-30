@@ -6,14 +6,15 @@ import MainForm from "../../Components/home/MainForm";
 
 const page = () => {
   const { session, setSession } = useSession();
+
+  async function handleCheck() {
+    const token = await getCookies();
+    console.log("token", token?.value);
+    setSession({
+      token: token?.value,
+    });
+  }
   useEffect(() => {
-    async function handleCheck() {
-      const token = await getCookies();
-      console.log("token", token?.value);
-      setSession({
-        token: token?.value,
-      });
-    }
     handleCheck();
   }, []);
   return <MainForm />;

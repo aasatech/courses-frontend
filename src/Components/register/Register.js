@@ -54,8 +54,8 @@ export const Register = () => {
         if (responseLogin.token) {
           setCookies(responseLogin.token);
           setSession({ token: responseLogin.token });
-          router.push("/home");
           actions.resetForm();
+          router.push("/home");
           setIsLoading(false);
         }
       }

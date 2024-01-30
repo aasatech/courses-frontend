@@ -1,6 +1,6 @@
-import { apiEmail } from "../utils/api";
+import { api } from "../utils/api";
 
 export const sendContact = async (contact) => {
-  const response = await apiEmail.post("/contact", contact);
+  const response = await api.post("/contact", contact);
   return response.data;
 };

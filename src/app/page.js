@@ -6,18 +6,22 @@ import MainForm from "../Components/home/MainForm";
 export default function Home() {
   const { session, setSession } = useSession();
 
+  async function handleCheck() {
+    const token = await getCookies();
+    console.log("token", token?.value);
+    setSession({
+      token: token?.value,
+    });
+  }
   useEffect(() => {
-    async function handleCheck() {
-      const token = await getCookies();
-      console.log("token", token?.value);
-      setSession({
-        token: token?.value,
-      });
-    }
     handleCheck();
   }, []);
 
   console.log(session);
 
-  return <div><MainForm/></div>;
+  return (
+    <div>
+      <MainForm />
+    </div>
+  );
 }

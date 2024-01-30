@@ -16,37 +16,41 @@ const Courses = () => {
   const [itemOffset, setItemOffset] = useState(1);
   const [items, setItems] = useState([]);
 
+  
+  const fetchCourses = async () => {
+    try {
+      const response = await course(selectCategory, selectTag, itemOffset);
+      setCourses(response);
+      setItems(response.meta.pages);
+      console.log("course all", response);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  const fetchCategories = async () => {
+    try {
+      const response = await category();
+      setCategories(response);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  const fetchTags = async () => {
+    try {
+      const response = await tag();
+      setTags(response);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+
   useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const response = await course(selectCategory, selectTag, itemOffset);
-        setCourses(response);
-        setItems(response.meta.pages);
-        console.log("course all", response);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-    const fetchCategories = async () => {
-      try {
-        const response = await category();
-        setCategories(response);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
-    const fetchTags = async () => {
-      try {
-        const response = await tag();
-        setTags(response);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
     fetchCourses();
     fetchCategories();
     fetchTags();
   }, [selectCategory, selectTag, itemOffset]);
+
 
   const handlePageClick = (event) => {
     const newOffset = event.selected + 1;
