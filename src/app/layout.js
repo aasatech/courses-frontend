@@ -4,6 +4,7 @@ import { Navbar } from "@/Components/Navbar";
 import { SessionProvider } from "@/store/SessionProvider";
 import { Footer } from "@/Components/home/footer/Footer";
 import { CircularProgressButton } from "@/Components/home/componensts/CircularProgressButton";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname()
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
         <SessionProvider values={{ item: {} }}>
-          <Navbar />
+          
+          < Navbar />
+          
           {children}
           <Footer />
         </SessionProvider>

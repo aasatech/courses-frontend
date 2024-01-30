@@ -5,7 +5,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 export const SectionFour = () => {
     return (
-        <section className='py-[60px] px-[10px] grid place-items-center'>
+        <section className='py-[60px] px-[10px] grid place-items-center overflow-hidden'>
             <div className='max-w-[1320px] max-lg:place-items-center max-lg:max-w-[670px]'>
                 <div className='grid grid-cols-2 max-md:grid-cols-1 max-md:gap-5 gap-[227.633px] '>
                     <div data-aos="fade-right" data-aos-delay="300">

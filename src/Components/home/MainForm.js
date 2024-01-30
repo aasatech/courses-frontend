@@ -12,7 +12,7 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import { SectionFive } from "./sectionFive/SectionFive";
 import { NavbarHomePage } from "./Novbar/Novbar";
-// import { Navbar } from "../Navbar";
+import { usePathname } from "next/navigation";
 
 export default function () {
   useEffect(() => {
@@ -20,10 +20,12 @@ export default function () {
     AOS.refresh()
   }, [])
 
+  const pathname = usePathname();
   return (
     <div>
-      <NavbarHomePage />
-      {/* <Navbar /> */}
+      {pathname === '/' &&
+        <NavbarHomePage />
+      }
       <SessionOne />
       <AchievementsSection />
       <SectionThree />
