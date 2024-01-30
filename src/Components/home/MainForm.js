@@ -11,14 +11,19 @@ import { SectionInstructor } from "./sectionInstructor/SectionInstructor";
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { SectionFive } from "./sectionFive/SectionFive";
+import { NavbarHomePage } from "./Novbar/Novbar";
+// import { Navbar } from "../Navbar";
 
 export default function () {
   useEffect(() => {
     AOS.init({ once: true })
     AOS.refresh()
   }, [])
+
   return (
     <div>
+      <NavbarHomePage />
+      {/* <Navbar /> */}
       <SessionOne />
       <AchievementsSection />
       <SectionThree />
