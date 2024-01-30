@@ -4,7 +4,6 @@ import { Navbar } from "@/Components/Navbar";
 import { SessionProvider } from "@/store/SessionProvider";
 import { Footer } from "@/Components/home/footer/Footer";
 import { CircularProgressButton } from "@/Components/home/componensts/CircularProgressButton";
-import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
