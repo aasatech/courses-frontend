@@ -59,11 +59,9 @@ export const Register = () => {
         }
       }
     } catch (error) {
-      // setIsLoading(false);
-      // console.log("error: ", error.response?.data?.message);
-
-      setIsLoading(true);
-      alert(error.response?.data?.message);
+      setIsLoading(false);
+      // console.log("error", e)
+      console.log("error: ", error.response?.data?.message);
     }
   };
 
