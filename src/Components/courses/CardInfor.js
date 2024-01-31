@@ -4,9 +4,9 @@ import React from "react";
 const CardInfor = ({ data = [], label, onChange }) => {
   return (
     <div>
-      <div className="p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="p-5 bg-white border border-gray-200 rounded-lg shadow">
         <div className="text-center font-bold "> {label} </div>
-        <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+        <hr className="h-px my-4 bg-gray-200 border-0 "></hr>
         <ul>
           {data?.map(({ name, id, index }) => {
             return (

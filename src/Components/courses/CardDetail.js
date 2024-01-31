@@ -20,8 +20,8 @@ const CardDetail = ({ data }) => {
           Free
         </div>
         <div className="inline-flex items-center justify-center w-full">
-          <hr className="w-64 h-px my-6 bg-pink-500 border-0 dark:bg-pink-500" />
-          <span className="absolute px-3 font-medium text-black -translate-x-1/2 bg-white left-1/2 dark:text-white">
+          <hr className="w-64 h-px my-6 bg-pink-500 border-0 " />
+          <span className="absolute px-3 font-medium text-black -translate-x-1/2 bg-white left-1/2">
             Course Feature
           </span>
         </div>
