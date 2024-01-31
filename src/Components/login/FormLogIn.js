@@ -8,8 +8,8 @@ import { useRouter } from "next/navigation";
 import usePasswordToggle from "../usePasswordToggle";
 import { useSession } from "../../store/UseSession";
 import { setCookies } from "../../actions/SetCookie";
-import { userLogin } from "@/actions/userService";
 import Link from "next/link";
+import { userLogin } from "../../actions/userService";
 
 const SignupSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("please input email"),

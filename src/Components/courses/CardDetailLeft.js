@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
 import Image from "next/image";
 import Rating from "./Rating";
@@ -89,8 +89,8 @@ const CardDetailLeft = ({ data }) => {
         </figcaption>
       </figure>
       <div className="relative mt-28">
-        <div className="text-4xl font-bold ">Overview</div>
-        <p className="text-justify mt-3">
+        <div className="text-4xl font-bold ">{data.name}</div>
+        <p className="text-justify mt-3 line-clamp-6">
           Are you new to PHP or need a refresher? Then this course will help you
           get all the fundamentals of Procedural PHP, Object Oriented PHP,
           MYSQLi and ending the course by building a CMS system similar to

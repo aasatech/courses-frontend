@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CardInfor from "./CardInfor";
-import { tags as tag } from "../../actions/Tags";
-import { courses as course } from "../../actions/courses";
+import { fetchTags as tag } from "../../actions/tags";
+import { fetchCourses as course } from "../../actions/courses";
 import { categories as category } from "../../actions/categoies";
 import Pagination from "./Pagination";
 
@@ -16,7 +16,6 @@ const Courses = () => {
   const [itemOffset, setItemOffset] = useState(1);
   const [items, setItems] = useState([]);
 
-  
   const fetchCourses = async () => {
     try {
       const response = await course(selectCategory, selectTag, itemOffset);
@@ -44,13 +43,11 @@ const Courses = () => {
     }
   };
 
-
   useEffect(() => {
     fetchCourses();
     fetchCategories();
     fetchTags();
   }, [selectCategory, selectTag, itemOffset]);
-
 
   const handlePageClick = (event) => {
     const newOffset = event.selected + 1;
