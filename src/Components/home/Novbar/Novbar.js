@@ -3,23 +3,35 @@ import Link from 'next/link';
 import {GiSmartphone, GiAlarmClock} from 'react-icons/gi';
 import {HiOutlineMapPin} from 'react-icons/hi2';
 import {MdOutlineMailOutline} from 'react-icons/md';
-// import {usePathname} from 'react';
+import {IoSearch} from 'react-icons/io5';
+import {IoMdClose} from 'react-icons/io';
+import {useState} from 'react';
 
 export const NavbarHomePage = () => {
-  // const pathname = usePathname();
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isCourseDropdownVisible, setCourseDropdownVisible] = useState(false);
+  const [isPagesDropdownVisible, setPagesDropdownVisible] = useState(false);
+  const [isSearchVisible, setSearchVisible] = useState(false);
+
+  const handleSearchClick = () => {
+    setSearchVisible(!isSearchVisible);
+  };
 
   return (
-    <div class="grid grid-rows-3 grid-flow-col">
-      <div class="row-span-3 bg-white">
-        <img src="https://eduquest.itech-theme.com/wp-content/uploads/2023/08/logo.png" />
+    <div class="grid h-[130px] grid-flow-col">
+      <div class="row-span-3 col-span-3 bg-white flex justify-end items-center">
+        <img
+          className="md:absolute left-0 md:left-[280px] "
+          src="https://eduquest.itech-theme.com/wp-content/uploads/2023/08/logo.png"
+          alt="Logo"
+        />
       </div>
 
-      <div class=" col-span-3 bg-slate-500">
-        <nav className=" bg-[#002935] border-gray-200 dark:bg-black">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <Link href="/home" className="flex items-center space-x-3 rtl:space-x-reverse"></Link>
+      <div class=" col-span-2">
+        <nav className=" max-w-screen-2xl h-[50px] bg-[#002935] border-gray-200 dark:bg-black">
+          <div className=" flex flex-wrap items-center justify-center mx-auto p-4">
             <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                 <div className="flex text-white items-start space-x-4 hover:text-[#ff3158]">
                   <GiSmartphone className="h-5 w-5" />
                   <li>
@@ -70,9 +82,9 @@ export const NavbarHomePage = () => {
         </nav>
       </div>
 
-      <div class="row-span-2 col-span-3">
-        <nav className="bg-[#ff3158] border-gray-200 dark:bg-[#ff3158]">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div class="col-span-2">
+        <nav className="max-w-screen-2xl h-[80px] bg-[#ff3158] border-gray-200 dark:bg-[#ff3158]">
+          <div className=" flex flex-wrap items-center justify-center mx-auto p-4">
             <button
               data-collapse-toggle="navbar-default"
               type="button"
@@ -96,54 +108,195 @@ export const NavbarHomePage = () => {
               </svg>
             </button>
             <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
+              <ul className="font-medium flex flex-col items-center justify-center md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li className="relative group">
                   <button
+                    onMouseEnter={() => setDropdownVisible(true)}
+                    onMouseLeave={() => setDropdownVisible(false)}
                     id="dropdownNavbarLink"
                     data-dropdown-toggle="dropdownNavbar"
-                    class="flex items-center justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                    Home +
+                    className="flex items-center justify-between w-full py-5 px-3 text-white rounded md:dark:hover:bg-transparent z-30">
+                    Home <span className={`hover:text-black pl-1 ${isDropdownVisible ? 'text-black' : ''}`}>+</span>
                   </button>
-                  <div
-                    id="dropdownNavbar"
-                    class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                          Dashboard
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                          Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                          Earnings
-                        </a>
-                      </li>
-                    </ul>
-                    <div class="py-1">
-                      <a
-                        href="#"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                        Sign out
-                      </a>
+                  {isDropdownVisible && (
+                    <div
+                      id="dropdownHome"
+                      onMouseEnter={() => setDropdownVisible(true)}
+                      onMouseLeave={() => setDropdownVisible(false)}
+                      className="absolute z-10 origin-top-right bg-white divide-y divide-gray-100 shadow w-44 group">
+                      <ul className="py-0 text-sm text-gray-700 dark:text-gray-400">
+                        <li>
+                          <a
+                            href="/home1"
+                            id="dropdownHomeLink"
+                            data-dropdown-toggle="dropdownHome"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Home1
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Home2
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Home3
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Home4
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Home4
+                          </a>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
+                  )}
+                </li>
+
+                <li className="relative group">
+                  <button
+                    onMouseEnter={() => setCourseDropdownVisible(true)}
+                    onMouseLeave={() => setCourseDropdownVisible(false)}
+                    id="dropdownCoursesLink"
+                    data-dropdown-toggle="dropdownNavbar"
+                    className="aria-hidden:flex items-center justify-between w-full py-5 px-3 text-white rounded md:dark:hover:bg-transparent">
+                    Courses{' '}
+                    <span className={`hover:text-black pl-1 ${isCourseDropdownVisible ? 'text-black' : ''}`}>+</span>
+                  </button>
+                  {isCourseDropdownVisible && (
+                    <div
+                      onMouseEnter={() => setCourseDropdownVisible(true)}
+                      onMouseLeave={() => setCourseDropdownVisible(false)}
+                      id="dropdownNavbarCourses"
+                      className="absolute z-10 origin-top-right bg-white divide-y divide-gray-100 shadow w-44 dark:bg-gray-700 dark:divide-gray-600 group">
+                      <ul className="py-0 text-sm text-gray-700 dark:text-gray-400">
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Course
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600">
+                            Course V2
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Course Detail
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+                <li className="relative group">
+                  <button
+                    onMouseEnter={() => setPagesDropdownVisible(true)}
+                    onMouseLeave={() => setPagesDropdownVisible(false)}
+                    id="dropdownNavbarPagesLink"
+                    data-dropdown-toggle="dropdownNavbar"
+                    className="flex items-center justify-between w-full py-5 px-3 text-white rounded md:dark:hover:bg-transparent">
+                    Pages <span className={`hover:text-black pl-1 ${isPagesDropdownVisible ? 'text-black' : ''}`}>+</span>
+                  </button>
+                  {isPagesDropdownVisible && (
+                    <div
+                      onMouseEnter={() => setPagesDropdownVisible(true)}
+                      onMouseLeave={() => setPagesDropdownVisible(false)}
+                      id="dropdownNavbar"
+                      className="absolute z-30 hidden origin-top-right bg-white divide-y divide-gray-100 shadow w-44 dark:bg-gray-700 dark:divide-gray-600 group-hover:block">
+                      <ul className="py-0 text-sm text-gray-700 dark:text-gray-400">
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Course
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Course V2
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Course Detail
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Blog
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Team
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Faq
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Gallery
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            Contact
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 hover:text-[#ff3158] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                            404 Page
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </li>
 
                 <li>
                   <Link
                     href="#"
-                    className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                    className="block py-2 px-3  text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     About
                   </Link>
                 </li>
@@ -153,6 +306,27 @@ export const NavbarHomePage = () => {
                     href="#"
                     className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                     Contact
+                  </Link>
+                </li>
+                <li className="relative">
+                  <div className="block py-2 px-5 pl-5 text-white">
+                    {isSearchVisible ? (
+                      <IoMdClose className="h-5 w-5" onClick={handleSearchClick} />
+                    ) : (
+                      <IoSearch className="h-5 w-5" onClick={handleSearchClick} />
+                    )}
+                  </div>
+
+                  {isSearchVisible && (
+                    <div className="absolute z-30 top-[30px] left-0 mt-5 p-5 bg-white shadow rounded-lg">
+                      <input type="text" placeholder="search..." className="border border-gray-100 rounded-lg" />
+                    </div>
+                  )}
+                </li>
+
+                <li>
+                  <Link href="#" className="block text-white bg-[#002935] px-5 py-3 rounded-lg">
+                    <button>Join Now</button>
                   </Link>
                 </li>
               </ul>
