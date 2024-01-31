@@ -1,6 +1,5 @@
-import { api } from "../utils/api";
-
+import { api } from "@/utils/api";
 export const fetchTags = async () => {
-  const response = await api.get("/tags");
+  const response = await api.get("/tags?page=", 2);
   return response.data;
 };

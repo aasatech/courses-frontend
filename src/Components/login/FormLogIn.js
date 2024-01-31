@@ -1,11 +1,12 @@
 "use client";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import MyInput from "../Input/MyInput";
 import { Button } from "../Button";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
-import { useSession } from "../../store/useSession";
+import usePasswordToggle from "../usePasswordToggle";
+import { useSession } from "../../store/UseSession";
 import { setCookies } from "../../actions/setCookie";
 import Link from "next/link";
 import { userLogin } from "../../actions/userService";
@@ -16,6 +17,7 @@ const SignupSchema = yup.object().shape({
 });
 
 const FormLogIn = () => {
+  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const { setSession } = useSession();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +31,7 @@ const FormLogIn = () => {
     try {
       const response = await userLogin(user);
       if (response.token) {
+        console.log(response.token);
         setCookies(response.token);
         setSession({ token: response.token });
         actions.resetForm();
@@ -45,6 +48,7 @@ const FormLogIn = () => {
     try {
       const response = await userGoogle();
       if (response.token) {
+        console.log(response.token);
         setCookies(response.token);
         setSession({ token: response.token });
         router.push("/home");
@@ -78,13 +82,26 @@ const FormLogIn = () => {
                 showError={true}
               />
             </div>
-            <Field
-              component={MyInput}
-              type="password"
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Password
+            </label>
+            <div className="relative">
+              <Field
+                component={MyInput}
+                type={PasswordInputType}
+                name="password"
+                placeholder="password"
+              />
+              <span
+                className="bottom-0 absolute
+                right-2 transform -translate-y-1/3 cursor-pointer"
+              >
+                {ToggleIcon}
+              </span>
+            </div>
+            <ErrorMessage
               name="password"
-              label="Password"
-              placeholder="password"
-              showError={true}
+              render={(msg) => <div className="text-red-500">{msg}</div>}
             />
           </div>
           <div className="mt-5 w-full">
