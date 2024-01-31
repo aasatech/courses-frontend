@@ -1,13 +1,12 @@
 "use client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import MyInput from "../Input/MyInput";
 import { Button } from "../Button";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
-import usePasswordToggle from "../usePasswordToggle";
-import { useSession } from "../../store/UseSession";
-import { setCookies } from "../../actions/SetCookie";
+import { useSession } from "../../store/useSession";
+import { setCookies } from "../../actions/setCookie";
 import Link from "next/link";
 import { userLogin } from "../../actions/userService";
 
@@ -17,7 +16,6 @@ const SignupSchema = yup.object().shape({
 });
 
 const FormLogIn = () => {
-  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   const { setSession } = useSession();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +29,6 @@ const FormLogIn = () => {
     try {
       const response = await userLogin(user);
       if (response.token) {
-        console.log(response.token);
         setCookies(response.token);
         setSession({ token: response.token });
         actions.resetForm();
@@ -48,7 +45,6 @@ const FormLogIn = () => {
     try {
       const response = await userGoogle();
       if (response.token) {
-        console.log(response.token);
         setCookies(response.token);
         setSession({ token: response.token });
         router.push("/home");
@@ -56,7 +52,6 @@ const FormLogIn = () => {
         setIsLoading(true);
       }
     } catch (error) {
-      // console.log(error);
       alert(error.response?.data?.message);
     }
   };
@@ -83,26 +78,13 @@ const FormLogIn = () => {
                 showError={true}
               />
             </div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Password
-            </label>
-            <div className="relative">
-              <Field
-                component={MyInput}
-                type={PasswordInputType}
-                name="password"
-                placeholder="password"
-              />
-              <span
-                className="bottom-0 absolute
-                right-2 transform -translate-y-1/3 cursor-pointer"
-              >
-                {ToggleIcon}
-              </span>
-            </div>
-            <ErrorMessage
+            <Field
+              component={MyInput}
+              type="password"
               name="password"
-              render={(msg) => <div className="text-red-500">{msg}</div>}
+              label="Password"
+              placeholder="password"
+              showError={true}
             />
           </div>
           <div className="mt-5 w-full">

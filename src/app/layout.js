@@ -1,10 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "../Components/Layout/Navbar";
-import { SessionProvider } from "../store/SessionProvider";
+import { Navbar } from "../Components/layout/Navbar";
+import { SessionProvider } from "../store/sessionProvider";
 import { Footer } from "../Components/home/footer/Footer";
 import { CircularProgressButton } from "../Components/home/componensts/CircularProgressButton";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

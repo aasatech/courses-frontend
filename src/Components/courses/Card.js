@@ -4,7 +4,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { toDate } from "../../utils/toDate";
+import dayjs from "dayjs";
 const Card = ({ course }) => {
   return (
     <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -24,7 +24,10 @@ const Card = ({ course }) => {
           </div>
           <div>
             <FontAwesomeIcon width={30} height={30} icon={faClock} />
-            <span> {toDate(course.created_at)}</span>
+            <span>
+              {" "}
+              {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")}
+            </span>
           </div>
         </div>
 
@@ -85,9 +88,6 @@ const Card = ({ course }) => {
             5.0
           </span>
         </div>
-        {/* <div>
-            <img src="https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png" width={40} />
-          </div> */}
       </div>
     </div>
   );
