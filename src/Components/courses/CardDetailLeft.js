@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
-import Rating from "./Rating";
 import Image from "next/image";
-
+import Rating from "./Rating";
 const CardDetailLeft = ({ data }) => {
-  // console.log(courseDetail)
+  console.log(data);
   return (
     <div className="">
       <figure className="relative w-full h-[428px]">
         <Image
-          width={100}
-          height={100}
-          className="w-full rounded-xl object-cover object-center h-full "
+          width={1000}
+          height={1200}
+          className=" w-full rounded-xl object-cover object-center h-full "
           src={data.image_url}
           alt="nature image"
         />
-
         <figcaption className="absolute -bottom-16 flex w-full transition-all duration-500 lg:w-[calc(100%-4rem)]  justify-between rounded border border-white bg-gray-100 py-6 px-6 shadow-lg shadow-black/5 saturate-200">
           <div className="flex mx-auto">
             <div className=" block xl:lg:grid grid-cols-3 xl:divide-x-2  divide-pink-500">
@@ -33,7 +31,7 @@ const CardDetailLeft = ({ data }) => {
               </div>
               <div className="px-10 sm:py-5">
                 <h1 className="text-xl font-bold">Category:</h1>
-                {/* {data?.category?.name} */}
+                {data?.category?.name}
               </div>
               <div className="px-10 sm:py-5">
                 <h5 className="font-bold">3 Reviews:</h5>
@@ -124,9 +122,9 @@ const CardDetailLeft = ({ data }) => {
 
       <div className="text-2xl font-bold mt-5">Course Content</div>
 
-      <div className="">
-        <Dropdown data={data.chapters} />
-        <Dropdown data={[]} />
+      <div>
+        <Dropdown data={data.chapters} label="Advance Concepts" />
+        <Dropdown data={[]} label="Basic Concepts" />
       </div>
 
       <div className="m-10">Student Ratings & Reviews</div>

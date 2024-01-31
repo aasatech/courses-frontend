@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import MyInput from "@/Components/MyInput";
-import { Button } from "@/Components/Button";
+import MyInput from "../Input/MyInput";
+import { Button } from "../Button";
 import * as yup from "yup";
-import usePasswordToggle from "@/Components/usePasswordToggle";
+import usePasswordToggle from "../usePasswordToggle";
 import { useRouter } from "next/navigation";
-import { userLogin, userRegister } from "@/actions/userService";
-import { useSession } from "@/store/UseSession";
+import { userRegister, userLogin } from "../../actions/userService";
+import { useSession } from "../../store/UseSession";
 import { setCookies } from "../../actions/SetCookie";
 
 const SignupSchema = yup.object().shape({
@@ -40,6 +40,7 @@ export const Register = () => {
       password: values.password,
       password_confirmation: values.confirmPassword,
     };
+    setIsLoading(true);
     try {
       const responseRegister = await userRegister(newUser);
       if (responseRegister) {
@@ -53,9 +54,9 @@ export const Register = () => {
         if (responseLogin.token) {
           setCookies(responseLogin.token);
           setSession({ token: responseLogin.token });
-          actions.formReset();
+          actions.resetForm();
           router.push("/home");
-          setIsLoading(true);
+          setIsLoading(false);
         }
       }
     } catch (error) {
@@ -78,7 +79,6 @@ export const Register = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          // alert(JSON.stringify(values.name))
           handleRegister(values, actions);
         }}
       >

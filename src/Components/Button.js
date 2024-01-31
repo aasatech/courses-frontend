@@ -1,7 +1,7 @@
 import React from "react";
 import { RotatingLines } from "react-loader-spinner";
 
-export const Button = ({ isloading = true, label, className, ...props }) => {
+export const Button = ({ isloading = false, label, className, ...props }) => {
   return (
     <button
       {...props}
@@ -9,19 +9,20 @@ export const Button = ({ isloading = true, label, className, ...props }) => {
     >
       {isloading ? (
         <div className=" w-full flex justify-center ">
-        <RotatingLines
-          strokeColor="white"
-          visible={true}
-          height="20"
-          width="20"
-          color="white"
-          strokeWidth="5"
-          animationDuration="0.75"
-          ariaLabel="rotating-lines-loading"
-          wrapperStyle={{}}
-          wrapperclassName=""
-        />
-      </div>
+          <RotatingLines
+            strokeColor="white"
+            visible={true}
+            height="20"
+            width="20"
+            color="white"
+            strokeWidth="5"
+            animationDuration="0.75"
+            ariaLabel="rotating-lines-loading"
+            wrapperStyle={{}}
+
+
+          />
+        </div>
       ) : (
         label
       )}

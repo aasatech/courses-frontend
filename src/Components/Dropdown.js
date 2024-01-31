@@ -6,9 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
-const Dropdown = ({ data }) => {
+const Dropdown = ({ data, label }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // console.log(data)
   return (
     <div className="flex flex-col items-center rounded-lg my-5">
       <button
@@ -17,8 +16,9 @@ const Dropdown = ({ data }) => {
           isOpen ? "rounded-t-lg" : "rounded-lg"
         } bg-gray-200 p-4 w-full flex items-center justify-between font-bold text-blue-700 text-lg -tracking-wider border-2 border-transparent border-slate-300  `}
       >
-        Advance Concepts
-          <FontAwesomeIcon icon={!isOpen ? faCaretDown : faCaretUp } />
+        {label}
+        (
+        <FontAwesomeIcon icon={!isOpen ? faCaretDown : faCaretUp} />)
       </button>
 
       {isOpen && (
