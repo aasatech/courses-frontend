@@ -1,11 +1,7 @@
-
-import Courses from '@/Components/courses/Courses'
-import React from 'react'
-
+import React from "react";
+import Courses from "../../Components/courses/Courses";
 const page = () => {
-  return (
-    <Courses/>
-  )
-}
+  return <Courses />;
+};
 
-export default page
+export default page;

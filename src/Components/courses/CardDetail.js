@@ -1,6 +1,7 @@
 import React from "react";
 
-const CardDetail = () => {
+const CardDetail = ({ data }) => {
+  console.log(data);
   return (
     <div className="p-5 relative flex flex-col bg-clip-border rounded-xl bg-white text-black shadow-gray-900/20 shadow-md w-full ">
       <div>
@@ -9,17 +10,15 @@ const CardDetail = () => {
             src="https://docs.material-tailwind.com/demo.mp4"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
       </div>
       <div className="">
         <div className="block my-4 font-sans text-lg antialiased font-bold leading-normal text-black">
-          Course Pricing
+          {data.name}
         </div>
-        <div className="block font-sans text-lg antialiased font-bold leading-normal text-pink-500">
+        <div className="block font-sans text-2xl antialiased font-bold leading-normal text-pink-500 ">
           Free
         </div>
-        white
         <div className="inline-flex items-center justify-center w-full">
           <hr className="w-64 h-px my-6 bg-pink-500 border-0 dark:bg-pink-500" />
           <span className="absolute px-3 font-medium text-black -translate-x-1/2 bg-white left-1/2 dark:text-white">
@@ -140,7 +139,7 @@ const CardDetail = () => {
             className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3.5 px-7 rounded-lg bg-pink-600 text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block w-full hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
             type="button"
           >
-            Buy Now
+            Entroll now
           </button>
         </div>
       </div>
