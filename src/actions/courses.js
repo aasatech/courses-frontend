@@ -1,6 +1,8 @@
 import { api } from "../utils/api";
 
 export const fetchCourses = async (selectCategory, selectTag, page = 1) => {
+  // console.log(selectCategory);
+  // console.log(selectTag);
   const response = await api.get(`/courses?page=${page}&per_page=9`, {
     params: {
       category_ids: selectCategory,

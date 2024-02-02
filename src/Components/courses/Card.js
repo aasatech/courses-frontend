@@ -23,7 +23,7 @@ const Card = ({ course }) => {
             <span className="text-pink-500 font-bold">Marketing</span>
           </div>
           <div>
-            <FontAwesomeIcon width={30} height={30} icon={faClock} />
+            {/* <FontAwesomeIcon width={30} height={30} icon={faClock} /> */}
             <span>
               {" "}
               {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")}
