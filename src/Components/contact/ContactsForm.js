@@ -4,7 +4,7 @@ import * as yup from "yup";
 import React, { useState } from "react";
 import { Button } from "../Button";
 import MyInput from "../Input/MyInput";
-import { sendContact } from "../../actions/Contact";
+import { sendContact } from "../../actions/contact.js";
 import CartContact from "./Cart";
 
 function ContactsForm() {
@@ -41,8 +41,8 @@ function ContactsForm() {
         setIsLoading(false);
       }
     } catch (error) {
+      alert(error);
       setIsLoading(false);
-      console.log(error);
     }
   };
 
@@ -75,8 +75,6 @@ function ContactsForm() {
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={(values, actions) => {
-                  console.log("true");
-                  //   alert(JSON.stringify(values.name));
                   handleRegister(values, actions);
                 }}
               >

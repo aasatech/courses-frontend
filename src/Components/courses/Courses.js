@@ -21,9 +21,8 @@ const Courses = () => {
       const response = await course(selectCategory, selectTag, itemOffset);
       setCourses(response);
       setItems(response.meta.pages);
-      console.log("course all", response);
     } catch (error) {
-      console.log("error", error);
+      alert(error);
     }
   };
   const fetchCategories = async () => {
@@ -31,7 +30,7 @@ const Courses = () => {
       const response = await category();
       setCategories(response);
     } catch (error) {
-      console.log("error", error);
+      alert(error);
     }
   };
   const fetchTags = async () => {
@@ -39,7 +38,7 @@ const Courses = () => {
       const response = await tag();
       setTags(response);
     } catch (error) {
-      console.log("error", error);
+      alert(error);
     }
   };
 
@@ -54,9 +53,6 @@ const Courses = () => {
     setItemOffset(newOffset);
   };
 
-  console.log(items);
-  console.log(itemOffset);
-
   const handleChangeCategory = (e, id) => {
     const { checked } = e.target;
     if (checked) {
@@ -70,7 +66,6 @@ const Courses = () => {
     const { checked } = e.target;
     if (checked) {
       setSelectTag((pre) => [...pre, id]);
-      console.log(id);
     } else {
       setSelectTag((pre) => pre.filter((tag) => tag !== id));
     }

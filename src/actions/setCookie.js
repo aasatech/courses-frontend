@@ -2,7 +2,6 @@
 import { cookies } from "next/headers";
 
 export async function setCookies(data) {
-  console.log(data);
   cookies().set("token", data, { maxAge: 10000 });
 }
 

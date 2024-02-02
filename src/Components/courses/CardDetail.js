@@ -1,7 +1,6 @@
 import React from "react";
 
 const CardDetail = ({ data }) => {
-  console.log(data);
   return (
     <div className="p-5 relative flex flex-col bg-clip-border rounded-xl bg-white text-black shadow-gray-900/20 shadow-md w-full ">
       <div>
