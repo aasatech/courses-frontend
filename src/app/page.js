@@ -1,6 +1,6 @@
 "use client";
-import { getCookies } from "../actions/SetCookie";
-import { useSession } from "../store/UseSession";
+import { getCookies } from "../actions/setCookie";
+import { useSession } from "../store/useSession";
 import { useEffect } from "react";
 import MainForm from "../Components/home/MainForm";
 export default function Home() {
@@ -8,7 +8,6 @@ export default function Home() {
 
   async function handleCheck() {
     const token = await getCookies();
-    console.log("token", token?.value);
     setSession({
       token: token?.value,
     });
@@ -17,7 +16,6 @@ export default function Home() {
     handleCheck();
   }, []);
 
-  console.log(session);
 
   return (
     <div>

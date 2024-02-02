@@ -118,31 +118,31 @@ export const SectionFive = () => {
             <button
               onClick={() => handleTabs('all')}
               className={`p-[10px] mx-4 duration-300 ${active === 'all' && 'text-[#FF3158]'}`}>All</button>
-            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-0 ${active === 'all' && 'w-full'}`}></div>
+            <div className={`bg-[#FF3158] absolute origin h-[1px] duration-300 w-full ${active === 'all' ? 'scale-x-100' : 'scale-x-0'} origin-center`}></div>
           </li>
           <li className='relative' data-aos="fade-up" data-aos-delay='200'>
             <button
               onClick={() => handleTabs('business')}
               className={`p-[10px] mx-4 duration-300 ${active === 'business' && 'text-[#FF3158]'}`}>Business</button>
-            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-0 ${active === 'business' && 'w-full'}`}></div>
+            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-full ${active === 'business' ? 'scale-x-100' : 'scale-x-0'} origin-center`}></div>
           </li>
           <li className='relative' data-aos="fade-up" data-aos-delay='300'>
             <button
               onClick={() => handleTabs('design')}
               className={`p-[10px] mx-4 duration-300 ${active === 'design' && 'text-[#FF3158]'}`}>Design</button>
-            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-0 ${active === 'design' && 'w-full'}`}></div>
+            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-full ${active === 'design' ? 'scale-x-100' : 'scale-x-0'} origin-center`}></div>
           </li>
           <li className='relative' data-aos="fade-up" data-aos-delay='400'>
             <button
               onClick={() => handleTabs('health & fitness')}
               className={`p-[10px] mx-4 duration-300 ${active === 'health & fitness' && 'text-[#FF3158]'}`}>Health & Fitness</button>
-            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-0 ${active === 'health & fitness' && 'w-full'}`}></div>
+            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-full ${active === 'health & fitness' ? 'scale-x-100' : 'scale-x-0'} origin-center`}></div>
           </li>
           <li className='relative' data-aos="fade-up" data-aos-delay='500'>
             <button
               onClick={() => handleTabs('marketing')}
               className={`p-[10px] mx-4 duration-300 ${active === 'marketing' && 'text-[#FF3158]'}`}>Marketing</button>
-            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-0 ${active === 'marketing' && 'w-full'}`}></div>
+            <div className={`bg-[#FF3158] absolute h-[1px] duration-300 w-full ${active === 'marketing' ? 'scale-x-100' : 'scale-x-0'} origin-center`}></div>
           </li>
         </ul>
         <div className='flex justify-center'>

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { toDate } from "../../utils/toDate";
+import dayjs from "dayjs";
 const Card = ({ course }) => {
   return (
     <div className="w-full bg-white border border-gray-200 rounded-lg shadow ">
@@ -21,7 +21,7 @@ const Card = ({ course }) => {
             <span className="text-pink-500 font-bold">Marketing</span>
           </div>
           <div>
-            <span> {toDate(course.created_at)}</span>
+            <span> {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")}</span>
           </div>
         </div>
 

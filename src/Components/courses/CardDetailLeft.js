@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Dropdown from "../Dropdown";
 import Image from "next/image";
 import Rating from "./Rating";
 const CardDetailLeft = ({ data }) => {
-  console.log(data);
   return (
     <div className="">
       <figure className="relative w-full h-[428px]">

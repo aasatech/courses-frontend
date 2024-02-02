@@ -1,5 +1,5 @@
 "use client";
-import { SessionContext } from "./SessionContext";
+import { SessionContext } from "./sessionContext";
 import { useState } from "react";
 
 export const SessionProvider = ({ children, ...props }) => {

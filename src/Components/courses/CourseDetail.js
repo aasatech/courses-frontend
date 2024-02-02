@@ -6,22 +6,18 @@ import { coursesDetail } from "../../actions/courses";
 
 const CourseDetail = ({ id }) => {
   const [courseDetail, setCourseDetail] = useState({});
-
   const fetchCourseDetail = async () => {
     try {
       const response = await coursesDetail(id);
       setCourseDetail(response);
-      console.log("course all", response);
     } catch (error) {
-      console.log("error", error);
+      alert(error);
     }
   };
 
   useEffect(() => {
     fetchCourseDetail();
   }, [id]);
-
-  console.log(courseDetail);
 
   return (
     <div className="md:grid block grid-cols-3 gap-5 m-10 2xl:px-48">

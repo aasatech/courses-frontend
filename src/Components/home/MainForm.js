@@ -11,14 +11,21 @@ import { SectionInstructor } from "./sectionInstructor/SectionInstructor";
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { SectionFive } from "./sectionFive/SectionFive";
+import { NavbarHomePage } from "./Novbar/Novbar";
+import { usePathname } from "next/navigation";
 
 export default function () {
   useEffect(() => {
     AOS.init({ once: true })
     AOS.refresh()
   }, [])
+
+  const pathname = usePathname();
   return (
-    <div>
+    <div className="overflow-hidden">
+      {pathname === '/' &&
+        <NavbarHomePage />
+      }
       <SessionOne />
       <AchievementsSection />
       <SectionThree />
