@@ -1,16 +1,18 @@
 import React from "react";
+import Video from 'next-video';
 
 const CardDetail = ({ data }) => {
-  console.log(data);
   return (
     <div className="p-5 relative flex flex-col bg-clip-border rounded-xl bg-white text-black shadow-gray-900/20 shadow-md w-full ">
       <div>
-        <video className="h-full w-full rounded-lg" controls>
-          <source
-            src="https://docs.material-tailwind.com/demo.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <Video src={data.video_url}  
+          muted
+          loop
+          playsInline
+          controls={true}
+        >
+
+        </Video>
       </div>
       <div className="">
         <div className="block my-4 font-sans text-lg antialiased font-bold leading-normal text-black">

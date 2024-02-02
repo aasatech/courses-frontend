@@ -1,6 +1,4 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +21,6 @@ const Card = ({ course }) => {
             <span className="text-pink-500 font-bold">Marketing</span>
           </div>
           <div>
-            <FontAwesomeIcon width={30} height={30} icon={faClock} />
             <span> {toDate(course.created_at)}</span>
           </div>
         </div>
@@ -85,9 +82,6 @@ const Card = ({ course }) => {
             5.0
           </span>
         </div>
-        {/* <div>
-            <img src="https://eduquest.itech-theme.com/wp-content/uploads/2019/05/avatar4-1.png" width={40} />
-          </div> */}
       </div>
     </div>
   );
