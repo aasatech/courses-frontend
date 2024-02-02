@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className}`}>
         <SessionProvider values={{ item: {} }}>
-          <Navbar />
+          
+          < Navbar />
+          
           {children}
           <Footer />
         </SessionProvider>
