@@ -1,20 +1,14 @@
+import { Pagination } from "flowbite-react";
 import React from "react";
-import ReactPaginate from "react-paginate";
 
-const Pagination = ({ onPageChange, pageCount }) => {
+const PaginationComponent = ({ onPageChange, pageCount, initialPage }) => {
   return (
-    <ReactPaginate
-      className="flex gap-6"
-      breakLabel="..."
-      nextLabel="next >"
-      activeClassName="bg-black rounded-md px-3 py-[1px] text-white"
+    <Pagination
+      currentPage={initialPage}
+      totalPages={pageCount}
       onPageChange={onPageChange}
-      pageRangeDisplayed={5}
-      pageCount={pageCount}
-      previousLabel="< previous"
-      renderOnZeroPageCount={null}
     />
   );
 };
 
-export default Pagination;
+export default PaginationComponent;

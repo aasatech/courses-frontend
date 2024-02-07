@@ -1,72 +1,54 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import CardInfor from "./CardInfor";
-import { fetchTags as tag } from "../../actions/tags";
-import { fetchCourses as course } from "../../actions/courses";
-import { categories as category } from "../../actions/categoies";
 import Pagination from "./Pagination";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-const Courses = () => {
-  const [courses, setCourses] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [selectCategory, setSelectCategory] = useState([]);
-  const [selectTag, setSelectTag] = useState([]);
-  const [itemOffset, setItemOffset] = useState(1);
-  const [items, setItems] = useState([]);
+const Courses = ({ data, tags, categories, meta }) => {
+  const searchParams = useSearchParams();
+  const [categoryIds, setSelectCategory] = useState(
+    Array.from(searchParams.getAll("categories")).map(Number)
+  );
+  const [tagIds, setSelectTag] = useState(
+    Array.from(searchParams.getAll("tags")).map(Number)
+  );
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const fetchCourses = async () => {
-    try {
-      const response = await course(selectCategory, selectTag, itemOffset);
-      setCourses(response);
-      setItems(response.meta.pages);
-    } catch (error) {
-      alert(error);
-    }
-  };
-  const fetchCategories = async () => {
-    try {
-      const response = await category();
-      setCategories(response);
-    } catch (error) {
-      alert(error);
-    }
-  };
-  const fetchTags = async () => {
-    try {
-      const response = await tag();
-      setTags(response);
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchCourses();
-    fetchCategories();
-    fetchTags();
-  }, [selectCategory, selectTag, itemOffset]);
-
-  const handlePageClick = (event) => {
-    const newOffset = event.selected + 1;
-    setItemOffset(newOffset);
+  const handlePageClick = (pageNumber) => {
+    const param = new URLSearchParams(searchParams.toString());
+    param.set("page", pageNumber);
+    router.push(pathname + "?" + param.toString());
   };
 
   const handleChangeCategory = (e, id) => {
     const { checked } = e.target;
+    const param = new URLSearchParams(searchParams.toString());
+    param.set("page", 1);
     if (checked) {
+      param.append("categories", id);
+      router.push(pathname + "?" + param.toString());
       setSelectCategory((pre) => [...pre, id]);
     } else {
+      param.delete("categories", id);
+      router.push(pathname + "?" + param.toString());
       setSelectCategory((pre) => pre.filter((cate) => cate !== id));
     }
   };
 
   const handleChangeTag = (e, id) => {
     const { checked } = e.target;
+    const param = new URLSearchParams(searchParams.toString());
+    param.set("page", 1);
     if (checked) {
+      param.set("page", 1);
+      param.append("tags", id);
+      router.push(pathname + "?" + param.toString());
       setSelectTag((pre) => [...pre, id]);
     } else {
+      param.delete("tags", id);
+      router.push(pathname + "?" + param.toString());
       setSelectTag((pre) => pre.filter((tag) => tag !== id));
     }
   };
@@ -77,22 +59,32 @@ const Courses = () => {
         <div>
           <CardInfor
             data={categories}
+            selectedIds={categoryIds}
             label="categories"
             onChange={handleChangeCategory}
           />
         </div>
         <div className="mt-5">
-          <CardInfor data={tags} label="tags" onChange={handleChangeTag} />
+          <CardInfor
+            data={tags}
+            selectedIds={tagIds}
+            label="tags"
+            onChange={handleChangeTag}
+          />
         </div>
       </div>
       <div className="2xl:col-span-3 xl:col-span-3 lg:col-span-3 md:col-span-2">
         <div className="grid 2xl:grid-cols-3 xl:grid-cols-3  lg:grid-cols-2 md:grid-cols-1 :grid-cols-1 gap-4">
-          {courses.data?.map((course, index) => (
+          {data?.map((course, index) => (
             <Card course={course} key={index} />
           ))}
         </div>
         <div className="flex justify-center my-10">
-          <Pagination pageCount={items.length} onPageChange={handlePageClick} />
+          <Pagination
+            pageCount={meta.totalPage}
+            onPageChange={handlePageClick}
+            initialPage={meta.currentPage + 1}
+          />
         </div>
       </div>
     </div>

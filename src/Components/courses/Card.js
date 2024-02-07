@@ -1,6 +1,4 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,11 +21,7 @@ const Card = ({ course }) => {
             <span className="text-pink-500 font-bold">Marketing</span>
           </div>
           <div>
-            <FontAwesomeIcon width={30} height={30} icon={faClock} />
-            <span>
-              {" "}
-              {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")}
-            </span>
+            <span> {dayjs().millisecond(course.created_at).format("DD-MM-YYYY")}</span>
           </div>
         </div>
 
